@@ -14,17 +14,10 @@ App.IndexRoute = Ember.Route.extend({
 
 App.Router.map(function() {
     this.resource('lists');
-    this.resource('list', { path: '/list/:list_id' });
 });
 
 
 App.ListsRoute = Ember.Route.extend({
-    setupController: function(controller, song) {
-        controller.set('photo', App.Photo.find(1));
-    },
-    model: function(){
-        return App.List.find();
-    }
 });
 
 App.ListsController = Ember.ArrayController.extend({
