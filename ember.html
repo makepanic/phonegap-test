@@ -101,7 +101,11 @@
         {{#if view.expanded}}
             <ul class="items">
                 {{#each nav in controller.navigations}}
-                    <li {{action goToLink nav}}>{{nav}}</li>
+                    <li>
+                        <a href="#" {{action goToLink nav}}>
+                            {{nav}}
+                        </a>
+                    </li>
                 {{/each}}
             </ul>
         {{/if}}
