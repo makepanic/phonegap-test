@@ -1,0 +1,205 @@
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+  Mixins available:
+    -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-size         - arguments: Width: 100%, Height: 100%
+    -   border-radius           - arguments: Radius: 5px
+    -   border-radius-separate  - arguments: Top Left: 5px, Top Left: 5px, Bottom Left: 5px, Bottom Right: 5px
+    -   box                     - arguments: Orientation: horizontal, Pack: center, Align: center
+    -   box-rgba                - arguments: R: 60, G: 3, B: 12, Opacity: 0.23, Color: #3C3C3C
+    -   box-shadow              - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   box-sizing              - arguments: Type: border-box
+    -   columns                 - arguments: Count: 3, Gap: 10
+    -   double-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Radius: 0
+    -   flex                    - arguments: Value: 1
+    -   flip                    - arguments: ScaleX: -1
+    -   font-face               - arguments: Font Family: myFont, Eot File Src: myFont.eot, Woff File Src: myFont.woff, Ttf File Src: myFont.ttf
+    -   opacity                 - arguments: Opacity: 0.5
+    -   outline radius          - arguments: Radius: 5px
+    -   resize                  - arguments: Direction: both
+    -   rotate                  - arguments: Degree: 0, M11: 0, M12: 0, M21: 0, M22: 0
+    CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+    -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   transform               - arguments: Parameters: null
+    -   transition              - arguments: What: all, Length: 1s, Easing: ease-in-out
+    -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
+
+------------------------------------------------------------- */
+/* BACKGROUND GRADIENT */
+/* BACKGROUND SIZE */
+/* BORDER RADIUS */
+/* BOX */
+/* BOX RGBA */
+/* BOX SHADOW */
+/* BOX SIZING */
+/* COLUMNS */
+/* DOUBLE BORDERS */
+/* FLEX */
+/* FLIP */
+/* FONT FACE */
+/* OPACITY */
+/* OUTLINE RADIUS */
+/* RESIZE */
+/* ROTATE*/
+/* TEXT SHADOW */
+/* TRANSFORM  */
+/* TRANSITION */
+/* TRIPLE BORDERS */
+.iPhone {
+  /* colors */
+  /* digit clock display */
+  /* Android ActionBar element */ }
+  .iPhone .compass {
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+    height: 240px;
+    padding-top: 30px;
+    text-align: center;
+    border: 1px solid #aeaeae;
+    box-shadow: 0 0 20px #3f5c80;
+    border-radius: 100%;
+    content: attr(data-deg); }
+  .iPhone .digits {
+    font-size: 20px;
+    background: #8b9fba;
+    border: 0;
+    border-bottom: 1px solid #aeaeae;
+    border-top: 1px solid #aeaeae; }
+    .iPhone .digits > * {
+      text-align: center;
+      border-right: 1px solid #aeaeae;
+      padding: 40px 10px; }
+  .iPhone .bottomMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: #8b9fba; }
+    .iPhone .bottomMenu .items {
+      border-top: 1px solid #3f5c80;
+      text-align: center;
+      list-style: none;
+      background: #8b9fba;
+      background-color: #869ebc;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#869ebc), to(#5a7598));
+      background-image: -webkit-linear-gradient(top, #869ebc, #5a7598);
+      background-image: -moz-linear-gradient(top, #869ebc, #5a7598);
+      background-image: -ms-linear-gradient(top, #869ebc, #5a7598);
+      background-image: -o-linear-gradient(top, #869ebc, #5a7598);
+      background-image: linear-gradient(top, #869ebc, #5a7598);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor); }
+      .iPhone .bottomMenu .items li {
+        display: inline-block;
+        color: white;
+        text-shadow: 0 -1px 0 #525b66; }
+        .iPhone .bottomMenu .items li .icon {
+          line-height: 25px;
+          display: block;
+          text-align: center;
+          font-size: 40px; }
+        .iPhone .bottomMenu .items li a {
+          display: block;
+          padding: 10px 20px;
+          color: white;
+          text-align: center; }
+  .iPhone .actionBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: 44px;
+    box-sizing: border-box;
+    display: block;
+    padding: 2px;
+    font-size: 24px;
+    background: #8b9fba;
+    background-color: #bdcadc;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#bdcadc), to(#5a7598));
+    background-image: -webkit-linear-gradient(top, #bdcadc, #5a7598);
+    background-image: -moz-linear-gradient(top, #bdcadc, #5a7598);
+    background-image: -ms-linear-gradient(top, #bdcadc, #5a7598);
+    background-image: -o-linear-gradient(top, #bdcadc, #5a7598);
+    background-image: linear-gradient(top, #bdcadc, #5a7598);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor);
+    border-bottom: 1px solid #aeaeae;
+    box-shadow: inset 0 -3px 0 #3f5c80, inset 0 2px 1px #d4dce9;
+    /* back button */
+    /* menu button */ }
+    .iPhone .actionBar ul {
+      list-style: none; }
+      .iPhone .actionBar ul li {
+        display: inline-block; }
+    .iPhone .actionBar > span, .iPhone .actionBar > ul, .iPhone .actionBar > ul span,
+    .iPhone .actionBar > a, .iPhone .actionBar > ul, .iPhone .actionBar > ul a {
+      height: 50px;
+      color: white;
+      text-shadow: 0 -1px 0 #525b66;
+      display: inline-block;
+      vertical-align: top; }
+    .iPhone .actionBar .back {
+      margin-top: 4px;
+      margin-left: 4px;
+      padding: 0 10px;
+      float: left;
+      height: 30px; }
+      .iPhone .actionBar .back > * {
+        vertical-align: top;
+        display: inline-block;
+        font-size: 14px; }
+    .iPhone .actionBar .menu {
+      position: relative;
+      padding: 0 20px;
+      font-size: 20px;
+      color: white;
+      text-shadow: 0 -1px 0 #525b66;
+      text-align: center;
+      display: block;
+      width: 50%;
+      margin: 0 auto; }
+      .iPhone .actionBar .menu p {
+        margin-top: 5px; }
+    .iPhone .actionBar .ui-button {
+      z-index: 0;
+      background-color: #4a6c9b;
+      background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
+      box-shadow: inset 0 0 3px #375075, 0 1px 1px #a0afc4;
+      border-radius: 6px;
+      padding: 6px 10px;
+      position: relative;
+      left: 10px; }
+      .iPhone .actionBar .ui-button.back:before {
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: -7px;
+        top: 4px;
+        background: #1ce;
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2) inset, -1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+        -webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
+        -moz-transform: rotate(-45deg) skew(-10deg, -10deg);
+        transform: rotate(-45deg) skew(-10deg, -10deg);
+        border-top-left-radius: 30px 2px;
+        border-top-right-radius: 100px 40px;
+        border-bottom-left-radius: 2px 30px;
+        border-bottom-right-radius: 40px 100px;
+        -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(black), color-stop(0.44, black), color-stop(0.5, transparent), to(transparent));
+        -webkit-background-size: 22px 22px;
+        background-position: -2px -1.5px;
+        background-color: #4a6c9b;
+        /*change to the same as the main element*/
+        background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.3))); }

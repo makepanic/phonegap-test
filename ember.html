@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ios.css">
     <link rel="stylesheet" href="css/ui.css">
 
 </head>
@@ -31,6 +32,9 @@
             </div>
         </div>
         {{outlet}}
+
+        {{render "bottomMenu"}}
+
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
@@ -93,39 +97,54 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="actionBarBack">
+        {{#cfgCondTrue "device" "Android"}}
         <div class="icon">&#59237;</div>
         <div class="atlas cordova"></div>
+        {{/cfgCondTrue}}
+
+        {{#cfgCondFalse "device" "Android"}}
+            <p>Zurück</p>
+        {{/cfgCondFalse}}
     </script>
+
+    <script type="text/x-handlebars" data-template-name="bottomMenu">
+        <ul class="items">
+            {{#each nav in controller.navigations}}
+            <li>
+                <a href="#" {{action goToLink nav.name}}>
+                    <div class="icon">{{routeIcon nav}}</div>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    
     <script type="text/x-handlebars" data-template-name="actionBarMenu">
         <p>{{title}}</p>
-        {{#if view.expanded}}
+        {{#cfgCondTrue "device" "Android"}}
+            <!-- if android show menu -->
+            {{#if view.expanded}}
             <ul class="items">
                 {{#each nav in controller.navigations}}
-                    <li>
-                        <a href="#" {{action goToLink nav}}>
-                            {{nav}}
-                        </a>
-                    </li>
+                <li><a href="#"  {{action goToLink nav}}>{{nav}}</a></li>
                 {{/each}}
             </ul>
-        {{/if}}
+            {{/if}}
+        {{/cfgCondTrue}}
     </script>
     <script type="text/x-handlebars" data-template-name="actionBarControl">
-        <li>
-            <a href="#">
-                <div class="icon">&#128269;</div>
-            </a>
-        </li>
-        <li>
-            {{#linkTo "photo"}}
-                <div class="icon">&#128247;</div>
-            {{/linkTo}}
-        </li>
-        <li>
-            <a href="#">
-                <div class="icon">&#9206;</div>
-            </a>
-        </li>
+        {{#cfgCondTrue "device" "Android"}}
+            <li>
+                <a href="#">
+                    <div class="icon">&#128269;</div>
+                </a>
+            </li>
+            <li>
+                {{#linkTo "photo"}}
+                    <div class="icon">&#128247;</div>
+                {{/linkTo}}
+            </li>
+        {{/cfgCondTrue}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="actionBar">
@@ -155,12 +174,7 @@
         <button {{action "stop"}}>stop</button>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="events">
-        <h2><small>Volume:</small>{{controller.volume}}</h2>
-        <h2><small>Online:</small>{{controller.online}}</h2>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="accel">
+    <!--<script type="text/x-handlebars" data-template-name="accel">
         <div class="row">
             <div class="columns small-4 large-4">
                 <h2><small>x</small>{{round accel.x}}</h2>
@@ -175,9 +189,9 @@
         <div class="row">
             <div class="columns small-12 large-12">t = {{accel.timestamp}}</div>
         </div>
-    </script>
+    </script>-->
 
-    <script src="phonegap.js"></script>
+    <script src="js/vendor/phonegap.js"></script>
     <script src="js/vendor/jquery-1.9.1.js"></script>
     <script src="js/vendor/handlebars.js"></script>
     <script src="js/vendor/ember-1.0.0-rc.2.js"></script>

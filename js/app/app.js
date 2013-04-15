@@ -6,8 +6,51 @@ window.onerror = function(message, url, lineNumber) {
 
 //List Product
 
-// Router
+/* Device check
+   - "Android"
+   - "BlackBerry"
+   - "iPhone"
+   - "webOS"
+   - "WinCE"
+*/
 var App = Ember.Application.create();
+
+App.cfg = {
+    device: 'iPhone',
+    routes: {
+        'index' : {
+            title: 'Home',
+            icon: '&#8962;'
+        },
+        'photo' : {
+            icon : '&#128247;',
+            title: 'Fotos'
+        },
+        'clock' : {
+            icon : '&#128340;',
+            title: 'Uhr'
+        },
+        'compass' : {
+            icon : '&#59176;',
+            title: 'Kompass'
+        },
+        'notify' : {
+            icon : '&#9889;',
+            title : 'Notify'
+        }
+    }
+};
+
+document.addEventListener("deviceready", function(){
+    App.cfg.device = q || 'desktop';
+    $('body').addClass(App.cfg.device);
+}, false);
+$(document).ready(function(){
+    console.error('remove dom ready event!');
+    $('body').addClass(App.cfg.device);
+})
+
+
 
 Ember.View.reopen({
     didInsertElement: function() {
@@ -30,8 +73,7 @@ App.Router.map(function() {
     this.route('clock');
     this.route('compass');
     this.route('notify');
-    this.route('events');
-    this.route('accel');
+    //this.route('accel');
 });
 
 App.ApplicationController = Ember.Controller.extend({
@@ -128,7 +170,7 @@ App.ActionBarController = Ember.ObjectController.extend({
 App.ActionBarBackView = Ember.View.extend({
     templateName: 'actionBarBack',
     tagName: 'span',
-    classNames: ['back'],
+    classNames: ['back', 'ui-button'],
     click: function(e){
         e.preventDefault();
         //console.log('click');
@@ -221,6 +263,30 @@ App.ClockController = Ember.ObjectController.extend({
     }
 });
 
+App.BottomMenuView = Ember.View.extend({
+    templateName: 'bottomMenu',
+    tagName: 'div',
+    classNames: ['bottomMenu']
+});
+App.BottomMenuController = Ember.ObjectController.extend({
+    navigations: function(){
+        var names = App.Router.router.recognizer.names;
+        var navs = [];
+        for(var name in names){
+            if (names.hasOwnProperty(name)) {
+                //console.log('found', name);
+                var nav = new Ember.Object();
+                nav.set('name', name);
+                navs.push(nav);
+            }
+        }
+        console.log(navs);
+        return navs;
+    }.property('App.Router.router.recognizer.names')
+})
+
+
+
 App.CompassView = Ember.View.extend({
     templateName: 'compass',
     willDestroyElement: function(){
@@ -264,51 +330,6 @@ App.CompassController = Ember.ObjectController.extend({
     }
 });
 
-App.EventsView = Ember.View.extend({
-    templateName: 'events',
-    willDestroyElement: function(){
-        this.get('controller').send('unbindVolumeEvents');
-    },
-    willInsertElement: function(){
-        this.get('controller').send('bindVolumeEvents');
-    }
-});
-App.EventsController = Ember.ObjectController.extend({
-    volume: 0,
-    online: false,
-    bindVolumeEvents: function(){
-        var that = this;
-        //console.log('bindVolumeEvents');
-
-        var decreaseVolume = function(){
-            //console.log('decrement volume');
-            that.decrementProperty('volume');
-        };
-        var increaseVolume = function(){
-            //console.log('increment volume');
-            that.incrementProperty('volume');
-        };
-        var onOnline = function(){
-            that.set('online', true);
-        };
-        var onOffline = function(){
-            that.set('online', true);
-        };
-
-        this.incrementProperty('volume');
-        document.addEventListener('volumedownbutton', decreaseVolume, false);
-        document.addEventListener('volumeupbutton', increaseVolume, false);
-        document.addEventListener("online", onOnline, false);
-        document.addEventListener("online", onOffline, false);
-    },
-    unbindVolumeEvents: function(){
-        //console.log('unbindVolumeEvents');
-        //document.removeEventListener('volumedownbutton');
-        //document.removeEventListener('volumeupbutton');
-
-    }
-});
-
 App.NotifyController = Ember.ObjectController.extend({
    fireNotification : function(){
        navigator.notification.vibrate(1000);
@@ -318,7 +339,7 @@ App.NotifyController = Ember.ObjectController.extend({
    }
 });
 
-
+/*
 App.AccelView = Ember.View.extend({
     templateName: 'accel',
     willDestroyElement: function(){
@@ -349,11 +370,49 @@ App.AccelController = Ember.ObjectController.extend({
         navigator.accelerometer.clearWatch(watchId);
     }
 });
+*/
 
 Ember.Handlebars.registerBoundHelper('round', function(val){
     val = '' + val;
     return val.substring(0,3);
+});
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+    console.log('ifCond', v1, v2);
+    if(v1 == v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
 
+Handlebars.registerHelper('cfgCondTrue', function(v1, v2, options) {
+    if(App.cfg[v1] == v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
+Handlebars.registerHelper('cfgCondFalse', function(v1, v2, options) {
+    if(App.cfg[v1] != v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
+Ember.Handlebars.registerBoundHelper('routeIcon', function(item){
+    var val = item.get('name');
+    console.log('searching for key', val);
+    var route = App.cfg.routes[val];
+    var icon = route ? route.icon ? route.icon : '&#128683;': '&#128683;';
+    console.log('returning ', icon);
+    return new Handlebars.SafeString("" + icon);;
+});
+Ember.Handlebars.registerBoundHelper('routeName', function(item){
+    var val = item.get('name');
+    console.log('searching for key', val);
+    var route = App.cfg.routes[val];
+    var title = route ? route.title ? route.title : '&#128683;': '&#128683;';
+    console.log('returning ', title);
+    return new Handlebars.SafeString("" + title);;
 });
 
 /*
