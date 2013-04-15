@@ -44,7 +44,7 @@ App.ApplicationRoute = Ember.Route.extend({
     },
     events: {
         goToLink: function(link){
-            console.log('goToLink', link);
+            //console.log('goToLink', link);
             this.transitionTo(link);
         }
     }
@@ -72,8 +72,8 @@ App.PhotoController = Ember.ObjectController.extend({
     takePicture: function(){
         var that = this;
         var cameraSuccess = function(imageURI){
-            console.log('cameraSuccess');
-            console.log( imageURI);
+            //console.log('cameraSuccess');
+            //console.log( imageURI);
             that.set('logo', imageURI);
 
             /*
@@ -85,23 +85,23 @@ App.PhotoController = Ember.ObjectController.extend({
             */
         };
         var cameraError = function(msg){
-            console.log('error ', msg);
+            //console.log('error ', msg);
         };
 
-        console.log('takePicture');
-        console.log(navigator.camera);
+        //console.log('takePicture');
+        //console.log(navigator.camera);
         navigator.camera.getPicture( cameraSuccess, cameraError, {
             quality: 50,
             destinationType: Camera.DestinationType.FILE_URI
         });
     },
     submitFileUpload: function(){
-        console.log('submitFileUpload');
+        //console.log('submitFileUpload');
         var person = App.Photo.createRecord({
             username: 'phonegap',
             attachment: this.get('logo')
         });
-        console.log(person);
+        //console.log(person);
         person.get('transaction').commit();
     }
 });
@@ -114,11 +114,11 @@ App.ActionBarController = Ember.ObjectController.extend({
         var navs = [];
         for(var name in names){
             if (names.hasOwnProperty(name)) {
-                console.log('found', name);
+                //console.log('found', name);
                 navs.push(name);
             }
         }
-        console.log(navs);
+        //console.log(navs);
         return navs;
     }.property('App.Router.router.recognizer.names')
 });
@@ -128,7 +128,7 @@ App.ActionBarBackView = Ember.View.extend({
     classNames: ['back'],
     click: function(e){
         e.preventDefault();
-        console.log('click');
+        //console.log('click');
         setTimeout(function(){
             window.history.back();
         }, 10);
@@ -149,7 +149,7 @@ App.ActionBarMenuView = Ember.View.extend({
                 that.toggleProperty('expanded');
             }, 400);*/
         }
-        console.log(e);
+        //console.log(e);
     }
 });
 App.ActionBarControlView = Ember.View.extend({
@@ -198,7 +198,7 @@ App.ClockController = Ember.ObjectController.extend({
     time: 0,
     running: false,
     stop: function(){
-        console.log('stopping timer');
+        //console.log('stopping timer');
         this.set('running', false);
     },
     start: function(){
@@ -212,7 +212,7 @@ App.ClockController = Ember.ObjectController.extend({
                }
            }, 1000);
         };
-        console.log('starting timer');
+        //console.log('starting timer');
         that.set('running', true);
         run();
     }
@@ -245,11 +245,11 @@ App.CompassController = Ember.ObjectController.extend({
     bindCompass: function(){
         var that = this;
         var compassSuccess = function(heading){
-                console.log('heading ' + heading.magneticHeading);
+                //console.log('heading ' + heading.magneticHeading);
                 that.set('degrees', heading.magneticHeading);
             },
             compassError = function(err){
-                console.log('compass error: ' + err.code);
+                //console.log('compass error: ' + err.code);
             };
 
         var cfg = {
@@ -275,14 +275,14 @@ App.EventsController = Ember.ObjectController.extend({
     online: false,
     bindVolumeEvents: function(){
         var that = this;
-        console.log('bindVolumeEvents');
+        //console.log('bindVolumeEvents');
 
         var decreaseVolume = function(){
-            console.log('decrement volume');
+            //console.log('decrement volume');
             that.decrementProperty('volume');
         };
         var increaseVolume = function(){
-            console.log('increment volume');
+            //console.log('increment volume');
             that.incrementProperty('volume');
         };
         var onOnline = function(){
@@ -299,7 +299,7 @@ App.EventsController = Ember.ObjectController.extend({
         document.addEventListener("online", onOffline, false);
     },
     unbindVolumeEvents: function(){
-        console.log('unbindVolumeEvents');
+        //console.log('unbindVolumeEvents');
         //document.removeEventListener('volumedownbutton');
         //document.removeEventListener('volumeupbutton');
 
@@ -310,7 +310,7 @@ App.NotifyController = Ember.ObjectController.extend({
    fireNotification : function(){
        navigator.notification.vibrate(1000);
        navigator.notification.alert("WASD", function(){
-           console.log('alert callback');
+           //console.log('alert callback');
        });
    }
 });
