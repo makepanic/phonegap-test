@@ -145,16 +145,11 @@ App.ActionBarMenuView = Ember.View.extend({
             //hat den toggle button getroffen
             this.toggleProperty('expanded');
         }else{
-            setTimeout(function(){
+            /*setTimeout(function(){
                 that.toggleProperty('expanded');
-            }, 400);
+            }, 400);*/
         }
         console.log(e);
-    },
-    mouseleave: function(e){
-        if(this.get('expanded')){
-            this.set('expanded', false);
-        }
     }
 });
 App.ActionBarControlView = Ember.View.extend({
