@@ -44,6 +44,14 @@
     <plugin name="Notification" value="org.apache.cordova.Notification"/>
     <plugin name="Battery" value="org.apache.cordova.BatteryListener" />
     <plugin name="Accelerometer" value="org.apache.cordova.AccelListener" />
+
+    <!-- ios -->
+    <plugin name="Compass" value="CDVLocation" />
+    <plugin name="Camera" value="CDVCamera" />
+    <plugin name="Battery" value="CDVBattery" />
+    <plugin name="Notification" value="CDVNotification" />
+    <plugin name="Accelerometer" value="CDVAccelerometer" />
+
     <!--
     <plugin name="Geolocation" value="org.apache.cordova.GeoBroker"/>
     <plugin name="Media" value="org.apache.cordova.AudioHandler"/>
