@@ -1,0 +1,33 @@
+@font-face {
+    font-family: entypo;
+    src:    url('../fonts/entypo.eot'),
+            url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/entypo.woff') format('woff'),
+            url('../fonts/entypo.ttf') format('truetype'),
+            url('../fonts/entypo.svg#entypo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p{
+    margin-bottom: 0;
+    line-height: normal;
+}
+ul{
+    margin-bottom: 0;
+}
+
+.atlas{
+    display: inline-block;
+    background: url("../img/cordova.png");
+}
+.atlas.cordova{
+    width:30px;
+    height:30px;
+    background-size: 100%;
+}
+
+
+.icon{
+    font-family: entypo;
+}
