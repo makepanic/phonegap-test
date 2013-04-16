@@ -42,12 +42,15 @@ App.cfg = {
     }
 };
 
-document.addEventListener("deviceready", function(){
+
+var applicationStarter = function(){
+    alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
-
     App.advanceReadiness();
-}, false);
+};
+
+document.addEventListener("deviceready", applicationStarter, false);
 
 var desktop = function(){
     $('body').addClass(App.cfg.device);
