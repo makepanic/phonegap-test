@@ -14,6 +14,7 @@ window.onerror = function(message, url, lineNumber) {
    - "WinCE"
 */
 var App = Ember.Application.create();
+App.deferReadiness();
 
 App.cfg = {
     device: 'Android',
@@ -44,6 +45,8 @@ App.cfg = {
 document.addEventListener("deviceready", function(){
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
+
+    App.advanceReadiness();
 }, false);
 
 $(document).ready(function(){
@@ -51,6 +54,7 @@ $(document).ready(function(){
         console.error('remove dom ready event!');
         $('body').addClass(App.cfg.device);
     }
+    App.advanceReadiness();
 });
 
 
