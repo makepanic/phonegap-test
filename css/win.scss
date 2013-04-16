@@ -10,6 +10,7 @@ html{
   background-color: $back;
 }
 body.WinCE{
+  overflow: hidden;
   height:100%;
   padding:0;
   background-color: $back;
@@ -144,7 +145,7 @@ body.WinCE{
 
         .icon{
           line-height:normal;
-          font-size: 24px;
+          font-size: 20px;
 
         }
 

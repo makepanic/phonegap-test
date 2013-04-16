@@ -102,7 +102,7 @@ App.LoadingView = Ember.View.extend({
     }.observes('hidden'),
     hide: function(){
         var that = this;
-        this.$().slideUp("fast", function() {
+        this.$().slideUp("slow", function() {
             that.set('isVisible', false);
         });
     }
