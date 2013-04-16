@@ -61,8 +61,9 @@ intervalId = setInterval(function() {
     }
 }, 500);
 
-
-document.addEventListener("deviceready", isReady, true);
+$(document).ready(function(){
+    document.addEventListener("deviceready", isReady, true);
+});
 
 var desktop = function(){
     $('body').addClass(App.cfg.device);
