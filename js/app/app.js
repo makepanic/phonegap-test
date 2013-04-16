@@ -17,7 +17,7 @@ var App = Ember.Application.create();
 App.deferReadiness();
 
 App.cfg = {
-    device: 'WinCE',
+    device: 'Android',
     routes: {
         'index' : {
             title: 'Home',
@@ -117,7 +117,7 @@ App.LoadingView = Ember.View.extend({
     }.observes('hidden'),
     hide: function(){
         var that = this;
-        if(App.cfg.device === 'iOS'){
+        if(App.cfg.device !== 'WinCE'){
             //use fadeOut for better performance
             this.$().fadeOut("slow", function() {
                 console.log('finished sliding');

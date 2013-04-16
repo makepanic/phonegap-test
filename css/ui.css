@@ -59,6 +59,16 @@
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
+  .Android .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background: #fff; }
+    .Android .loading .loading-animation {
+      background: url("../img/ActivityIndicator.gif") no-repeat center; }
   .Android .compass {
     display: block;
     margin: 0 auto;
