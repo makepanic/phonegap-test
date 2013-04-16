@@ -16,7 +16,7 @@ window.onerror = function(message, url, lineNumber) {
 var App = Ember.Application.create();
 
 App.cfg = {
-    device: 'iPhone',
+    device: 'iOS',
     routes: {
         'index' : {
             title: 'Home',

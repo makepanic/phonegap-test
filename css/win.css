@@ -55,11 +55,11 @@
 /* TRANSFORM  */
 /* TRANSITION */
 /* TRIPLE BORDERS */
-.iOS {
+.iPhone {
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
-  .iOS .compass {
+  .iPhone .compass {
     display: block;
     margin: 0 auto;
     width: 240px;
@@ -70,24 +70,24 @@
     box-shadow: 0 0 20px #3f5c80;
     border-radius: 100%;
     content: attr(data-deg); }
-  .iOS .digits {
+  .iPhone .digits {
     font-size: 20px;
     background: #8b9fba;
     border: 0;
     border-bottom: 1px solid #aeaeae;
     border-top: 1px solid #aeaeae; }
-    .iOS .digits > * {
+    .iPhone .digits > * {
       text-align: center;
       border-right: 1px solid #aeaeae;
       padding: 40px 10px; }
-  .iOS .bottomMenu {
+  .iPhone .bottomMenu {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 2;
     background: #8b9fba; }
-    .iOS .bottomMenu .items {
+    .iPhone .bottomMenu .items {
       border-top: 1px solid #3f5c80;
       text-align: center;
       list-style: none;
@@ -100,21 +100,21 @@
       background-image: -o-linear-gradient(top, #869ebc, #5a7598);
       background-image: linear-gradient(top, #869ebc, #5a7598);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor); }
-      .iOS .bottomMenu .items li {
+      .iPhone .bottomMenu .items li {
         display: inline-block;
         color: white;
         text-shadow: 0 -1px 0 #525b66; }
-        .iOS .bottomMenu .items li .icon {
+        .iPhone .bottomMenu .items li .icon {
           line-height: 25px;
           display: block;
           text-align: center;
           font-size: 40px; }
-        .iOS .bottomMenu .items li a {
+        .iPhone .bottomMenu .items li a {
           display: block;
           padding: 10px 20px;
           color: white;
           text-align: center; }
-  .iOS .actionBar {
+  .iPhone .actionBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -138,28 +138,28 @@
     box-shadow: inset 0 -3px 0 #3f5c80, inset 0 2px 1px #d4dce9;
     /* back button */
     /* menu button */ }
-    .iOS .actionBar ul {
+    .iPhone .actionBar ul {
       list-style: none; }
-      .iOS .actionBar ul li {
+      .iPhone .actionBar ul li {
         display: inline-block; }
-    .iOS .actionBar > span, .iOS .actionBar > ul, .iOS .actionBar > ul span,
-    .iOS .actionBar > a, .iOS .actionBar > ul, .iOS .actionBar > ul a {
+    .iPhone .actionBar > span, .iPhone .actionBar > ul, .iPhone .actionBar > ul span,
+    .iPhone .actionBar > a, .iPhone .actionBar > ul, .iPhone .actionBar > ul a {
       height: 50px;
       color: white;
       text-shadow: 0 -1px 0 #525b66;
       display: inline-block;
       vertical-align: top; }
-    .iOS .actionBar .back {
+    .iPhone .actionBar .back {
       margin-top: 4px;
       margin-left: 4px;
       padding: 0 10px;
       float: left;
       height: 30px; }
-      .iOS .actionBar .back > * {
+      .iPhone .actionBar .back > * {
         vertical-align: top;
         display: inline-block;
         font-size: 14px; }
-    .iOS .actionBar .menu {
+    .iPhone .actionBar .menu {
       position: relative;
       padding: 0 20px;
       font-size: 20px;
@@ -169,9 +169,9 @@
       display: block;
       width: 50%;
       margin: 0 auto; }
-      .iOS .actionBar .menu p {
+      .iPhone .actionBar .menu p {
         margin-top: 5px; }
-    .iOS .actionBar .ui-button {
+    .iPhone .actionBar .ui-button {
       z-index: 0;
       background-color: #4a6c9b;
       background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
@@ -180,7 +180,7 @@
       padding: 6px 10px;
       position: relative;
       left: 10px; }
-      .iOS .actionBar .ui-button.back:before {
+      .iPhone .actionBar .ui-button.back:before {
         display: block;
         content: "";
         width: 20px;
