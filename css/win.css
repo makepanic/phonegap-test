@@ -60,7 +60,6 @@ html {
   background-color: black; }
 
 body.WinCE {
-  overflow: hidden;
   height: 100%;
   padding: 0;
   background-color: black;

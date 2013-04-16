@@ -28,6 +28,21 @@
     padding-top:74px;
   }
 
+  .loading{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:3;
+
+    background: $abFont;
+
+    .loading-animation{
+      background: url("../img/ActivityIndicator.gif") no-repeat center;
+    }
+  }
+
   .compass{
     display: block;
     margin:0 auto;
@@ -58,10 +73,7 @@
 
 
   .bottomMenu{
-    position: fixed;
-    bottom:0;
-    left:0;
-    right:0;
+    position: relative;
     z-index: 2;
     background: $abBack;
 
@@ -97,11 +109,8 @@
 
   /* Android ActionBar element */
   .actionBar {
-    position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:2;
+    position: relative;
+
     height:44px;
     box-sizing: border-box;
     display: block;

@@ -101,10 +101,18 @@ App.LoadingView = Ember.View.extend({
     }.observes('hidden'),
     hide: function(){
         var that = this;
-        this.$().slideUp("slow", function() {
-            console.log('finished sliding');
-            that.set('isVisible', false);
-        });
+        if(App.cfg.device === 'iOS'){
+            //use fadeOut for better performance
+            this.$().fadeOut("slow", function() {
+                console.log('finished sliding');
+                that.set('isVisible', false);
+            });
+        }else{
+            this.$().slideUp("slow", function() {
+                console.log('finished sliding');
+                that.set('isVisible', false);
+            });
+        }
     }
 });
 
@@ -149,19 +157,6 @@ App.ApplicationView = Ember.View.extend({
     }
 });
 App.ApplicationController = Ember.Controller.extend({
-    device: function(){
-        if(typeof device === "undefined"){
-            return 'desktop'
-        }else{
-            var out = [];
-            out.push('name: ' + device['name']);
-            out.push('cordova: ' + device['cordova']);
-            out.push('platform: ' + device['platform']);
-            out.push('uuid: ' + device['uuid']);
-            out.push('version: ' + device['version']);
-            return out.join('\n');
-        }
-    }.property(),
     needs: ['actionBar'],
     title: '',
     _updateTitle: function() {
