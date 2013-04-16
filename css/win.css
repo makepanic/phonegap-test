@@ -74,7 +74,7 @@ body.WinCE {
     .WinCE .loading .loading-animation {
       background: url("../img/animated_loader.gif") no-repeat center;
       width: 100%;
-      height: 100%;
+      height: 120%;
       position: absolute; }
   .WinCE .header {
     position: relative;
