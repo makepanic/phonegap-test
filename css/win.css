@@ -56,9 +56,11 @@
 /* TRANSITION */
 /* TRIPLE BORDERS */
 html {
+  padding: 0;
   background-color: black; }
 
 body.WinCE {
+  padding: 0;
   background-color: black;
   color: #fff;
   padding-top: 115px; }
@@ -121,6 +123,7 @@ body.WinCE {
     right: 0;
     z-index: 2;
     padding: 6px 0;
+    margin: 0;
     background: #1f1f1f; }
     .WinCE .bottomMenu .items {
       text-align: center;
