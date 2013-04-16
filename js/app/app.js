@@ -63,10 +63,12 @@ intervalId = setInterval(function() {
 
 $(document).ready(function(){
     alert('dom ready');
-    document.addEventListener("deviceready", isReady, false);
+    //document.addEventListener("deviceready", isReady, false);
+    $(document).on('deviceready', isReady);
 });
 
 var desktop = function(){
+    clearInterval(intervalId);
     $('body').addClass(App.cfg.device);
     App.advanceReadiness();
 };
