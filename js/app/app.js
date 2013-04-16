@@ -44,7 +44,6 @@ App.cfg = {
 document.addEventListener("deviceready", function(){
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
-    alert(App.cfg.device);
 }, false);
 
 $(document).ready(function(){
@@ -145,6 +144,13 @@ App.ApplicationView = Ember.View.extend({
     }
 });
 App.ApplicationController = Ember.Controller.extend({
+    device: function(){
+        if(typeof device === "undefined"){
+            return 'desktop'
+        }else{
+            return device;
+        }
+    }.property(),
     needs: ['actionBar'],
     title: '',
     _updateTitle: function() {
