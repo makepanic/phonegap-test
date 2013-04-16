@@ -46,7 +46,7 @@ App.cfg = {
 var intervalId = 0;
 
 var isReady = function(){
-    clearInterval(intervalID);
+    clearInterval(intervalId);
     console.log('deviceready');
     alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
@@ -54,8 +54,8 @@ var isReady = function(){
     App.advanceReadiness();
 };
 
-intervalID = setInterval(function() {
-    alert('intervalCheck');
+
+intervalId = setInterval(function() {
     if (PhoneGap.available) {
         isReady();
     }
