@@ -42,7 +42,6 @@ body.WinCE{
 
   .loading{
     background: $back;
-    position: relative;
 
     .loading-animation{
       background: url("../img/animated_loader.gif") no-repeat center;
@@ -105,11 +104,6 @@ body.WinCE{
       border-right: 1px solid $abBorder;
       padding:40px 10px;
     }
-  }
-
-
-  #outlet{
-    overflow:auto;
   }
 
 

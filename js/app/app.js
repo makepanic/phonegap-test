@@ -16,7 +16,7 @@ window.onerror = function(message, url, lineNumber) {
 var App = Ember.Application.create();
 
 App.cfg = {
-    device: 'WinCE',
+    device: 'Android',
     routes: {
         'index' : {
             title: 'Home',
@@ -102,6 +102,7 @@ App.LoadingView = Ember.View.extend({
     hide: function(){
         var that = this;
         this.$().slideUp("slow", function() {
+            console.log('finished sliding');
             that.set('isVisible', false);
         });
     }
@@ -113,7 +114,7 @@ App.ApplicationView = Ember.View.extend({
 
         console.log('application inserted');
         //wenn windows phone, dann absolute umwandeln
-        if(App.cfg.device === 'WinCE'){
+        if(App.cfg.device){
             setTimeout(function(){
                 console.log('WinCE inserted ApplicationView');
                 var width = window.innerWidth,
@@ -122,6 +123,10 @@ App.ApplicationView = Ember.View.extend({
                 var $header = $('.header'),
                     $outlet = $('#outlet'),
                     $footer = $('.bottomMenu');
+
+                if(!$header.length){
+                    $header = $('.actionBar');
+                }
 
                 var newHeight = height - ($header.outerHeight() + $footer.outerHeight());
 
