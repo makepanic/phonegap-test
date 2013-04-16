@@ -90,7 +90,7 @@ App.LoadingView = Ember.View.extend({
     didInsertElement: function(){
         var height = window.innerHeight;
         this.$().css({
-            'height' : height + 30
+            'height' : height + 100
         }).find('.loading-animation').css({
             'height' : height
         })
