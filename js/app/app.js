@@ -87,6 +87,14 @@ App.LoadingView = Ember.View.extend({
     templateName: 'loading',
     tagName: 'div',
     classNames: ['loading'],
+    didInsertElement: function(){
+        var height = window.innerHeight;
+        this.$().css({
+            'height' : height
+        }).find('.loading-animation').css({
+            'height' : height
+        })
+    },
     _hideViewChanged: function() {
         if (this.get('hidden')) {
             this.hide();
