@@ -43,14 +43,15 @@ App.cfg = {
 };
 
 
-var applicationStarter = function(){
+
+
+document.addEventListener("deviceready", function(){
     console.log('deviceready');
+    alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
     App.advanceReadiness();
-};
-
-document.addEventListener("deviceready", applicationStarter, true);
+}, true);
 
 var desktop = function(){
     $('body').addClass(App.cfg.device);
