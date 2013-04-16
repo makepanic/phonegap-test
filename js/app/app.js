@@ -100,7 +100,7 @@ App.ApplicationView = Ember.View.extend({
                     'height': newHeight
                 });
 
-            }, 10);
+            }, 100);
 
         }
 
