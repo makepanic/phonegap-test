@@ -145,7 +145,7 @@ body.WinCE {
         margin-right: 26px;
         text-align: center; }
         .WinCE .bottomMenu .items li .icon {
-          line-height: 18px;
+          line-height: 20px;
           font-size: 20px; }
         .WinCE .bottomMenu .items li a {
           display: block;

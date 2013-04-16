@@ -148,7 +148,13 @@ App.ApplicationController = Ember.Controller.extend({
         if(typeof device === "undefined"){
             return 'desktop'
         }else{
-            return device;
+            var out = [];
+            out.push('name: ' + device['name']);
+            out.push('cordova: ' + device['cordova']);
+            out.push('platform: ' + device['platform']);
+            out.push('uuid: ' + device['uuid']);
+            out.push('version: ' + device['version']);
+            return out.join('\n');
         }
     }.property(),
     needs: ['actionBar'],
