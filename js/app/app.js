@@ -49,13 +49,14 @@ document.addEventListener("deviceready", function(){
     App.advanceReadiness();
 }, false);
 
+/*
 $(document).ready(function(){
     if(typeof device === "undefined"){
         console.error('remove dom ready event!');
         $('body').addClass(App.cfg.device);
     }
-    App.advanceReadiness();
 });
+*/
 
 
 
