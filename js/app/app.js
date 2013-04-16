@@ -44,7 +44,7 @@ App.cfg = {
 
 
 var applicationStarter = function(){
-    alert('deviceready');
+    console.log('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
     App.advanceReadiness();
@@ -128,29 +128,14 @@ App.ApplicationView = Ember.View.extend({
         //wenn windows phone, dann absolute umwandeln
         if(App.cfg.device){
             setTimeout(function(){
-                var width = window.innerWidth,
-                    height= window.innerHeight;
-
-                var $header = $('.header'),
-                    $outlet = $('#outlet'),
-                    $footer = $('.bottomMenu');
-
-                if(!$header.length){
-                    $header = $('.actionBar');
-                }
-
-                var newHeight = height - ($header.outerHeight() + $footer.outerHeight());
-
-                console.log('window', height, 'header', $header.outerHeight(), 'footer', $footer.outerHeight());
-                console.log('newHeight', newHeight);
-                $outlet.css({
-                    'height': newHeight
+                $(window).on('resize', function(){
+                    that.get('controller').send('resize');
                 });
 
+                that.get('controller').send('resize');
+
                 var loadingView = that.get('loadingView');
-
                 loadingView.set('hidden', true);
-
 
             }, 2000);
 
@@ -162,6 +147,29 @@ App.ApplicationView = Ember.View.extend({
 App.ApplicationController = Ember.Controller.extend({
     needs: ['actionBar'],
     title: '',
+    resize: function(){
+        var width = window.innerWidth,
+            height= window.innerHeight;
+
+        console.log('resize window');
+
+        var $header = $('.header'),
+            $outlet = $('#outlet'),
+            $footer = $('.bottomMenu');
+
+        if(!$header.length){
+            $header = $('.actionBar');
+        }
+
+        var newHeight = height - ($header.outerHeight() + $footer.outerHeight());
+
+        console.log('window', height, 'header', $header.outerHeight(), 'footer', $footer.outerHeight());
+        console.log('newHeight', newHeight);
+
+        $outlet.css({
+            'height': newHeight
+        });
+    },
     _updateTitle: function() {
         var path = this.get('currentPath');
         var route = App.cfg.routes[path];
