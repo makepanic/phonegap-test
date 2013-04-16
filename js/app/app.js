@@ -45,13 +45,22 @@ App.cfg = {
 
 
 
-document.addEventListener("deviceready", function(){
+var isReady = function(){
     console.log('deviceready');
     alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
     App.advanceReadiness();
-}, true);
+};
+
+var intervalID = window.setInterval(function() {
+    if (PhoneGap.available) {
+        isReady();
+    }
+}, 500);
+
+
+document.addEventListener("deviceready", isReady, true);
 
 var desktop = function(){
     $('body').addClass(App.cfg.device);
