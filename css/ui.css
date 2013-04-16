@@ -55,12 +55,13 @@
 /* TRANSFORM  */
 /* TRANSITION */
 /* TRIPLE BORDERS */
+body.Android {
+  padding-top: 74px; }
+
 .Android {
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
-  .Android body {
-    padding-top: 74px; }
   .Android .compass {
     display: block;
     margin: 0 auto;

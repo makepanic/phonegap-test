@@ -53,6 +53,7 @@ document.addEventListener("deviceready", function(){
 
 
 
+
 Ember.View.reopen({
     didInsertElement: function() {
         this.set('elementIsInserted', true);

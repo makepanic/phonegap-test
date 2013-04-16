@@ -2,6 +2,10 @@
 
 //use --style compressed for compressed .css output
 
+body.Android{
+  padding-top:74px;
+}
+
 .Android{
   /* colors */
   $abBack: #ddd;
@@ -13,9 +17,7 @@
   $abMenuListBorder: #ddd;
   $abMenuListItemBorder: #dadada;
 
-  body{
-    padding-top:74px;
-  }
+
 
   .compass{
     display: block;
