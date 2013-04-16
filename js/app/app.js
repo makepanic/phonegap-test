@@ -61,7 +61,7 @@ intervalId = setInterval(function() {
 }, 500);
 
 $(document).ready(function(){
-    document.addEventListener("deviceready", isReady, true);
+    document.addEventListener("deviceready", isReady, false);
 });
 
 var desktop = function(){
