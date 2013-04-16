@@ -17,7 +17,7 @@ var App = Ember.Application.create();
 App.deferReadiness();
 
 App.cfg = {
-    device: 'iOS',
+    device: 'WinCE',
     routes: {
         'index' : {
             title: 'Home',
@@ -50,7 +50,7 @@ var applicationStarter = function(){
     App.advanceReadiness();
 };
 
-document.addEventListener("deviceready", applicationStarter, false);
+document.addEventListener("deviceready", applicationStarter, true);
 
 var desktop = function(){
     $('body').addClass(App.cfg.device);
