@@ -39,6 +39,16 @@ body.WinCE{
   $abButtonBoxShadow: #375075;
   $abButtonBoxShadowOut: #a0afc4;
 
+  .loading{
+    background: $back;
+
+    .loading-animation{
+      background: url("../img/animated_loader.gif") no-repeat center;
+      width:100%;
+      height:100%;
+      position:absolute;
+    }
+  }
 
   .header{
     position: relative;

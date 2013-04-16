@@ -78,8 +78,29 @@ App.Router.map(function() {
     //this.route('accel');
 });
 
+App.LoadingView = Ember.View.extend({
+    hidden: false,
+    viewName: 'loadingView',
+    templateName: 'loading',
+    tagName: 'div',
+    classNames: ['loading'],
+    _hideViewChanged: function() {
+        if (this.get('hidden')) {
+            this.hide();
+        }
+    }.observes('hidden'),
+    hide: function(){
+        var that = this;
+        this.$().fadeOut("slow", function() {
+            that.set('isVisible', false);
+        });
+    }
+});
+
 App.ApplicationView = Ember.View.extend({
     didInsertElement : function(){
+        var that = this;
+
         console.log('application inserted');
         //wenn windows phone, dann absolute umwandeln
         if(App.cfg.device === 'WinCE'){
@@ -100,6 +121,11 @@ App.ApplicationView = Ember.View.extend({
                     'height': newHeight
                 });
 
+                var loadingView = that.get('loadingView');
+
+                loadingView.set('hidden', true);
+
+
             }, 2000);
 
         }
@@ -110,7 +136,7 @@ App.ApplicationView = Ember.View.extend({
 App.ApplicationController = Ember.Controller.extend({
     needs: ['actionBar'],
     title: '',
-    updateTitle: function() {
+    _updateTitle: function() {
         var path = this.get('currentPath');
         var route = App.cfg.routes[path];
 

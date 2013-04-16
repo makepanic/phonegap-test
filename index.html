@@ -26,6 +26,9 @@
 <body>
 
     <script type="text/x-handlebars" data-template-name="application">
+
+        {{view App.LoadingView}}
+
         {{#cfgCondTrue "device" "WinCE"}}
             <div class="header">
                 <h1>phonegap</h1>
@@ -45,6 +48,10 @@
             {{render "bottomMenu"}}
         {{/cfgCondFalse}}
 
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="loading">
+        <div class="loading-animation"></div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
