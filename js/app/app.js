@@ -17,7 +17,7 @@ var App = Ember.Application.create();
 App.deferReadiness();
 
 App.cfg = {
-    device: 'WinCE',
+    device: 'iOS',
     routes: {
         'index' : {
             title: 'Home',
@@ -48,6 +48,7 @@ var intervalId = 0;
 var isReady = function(){
     clearInterval(intervalId);
     console.log('deviceready');
+    alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
     App.advanceReadiness();
@@ -61,6 +62,7 @@ intervalId = setInterval(function() {
 }, 500);
 
 $(document).ready(function(){
+    alert('dom ready');
     document.addEventListener("deviceready", isReady, false);
 });
 
