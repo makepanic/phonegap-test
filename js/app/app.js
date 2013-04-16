@@ -48,7 +48,6 @@ var intervalId = 0;
 var isReady = function(){
     clearInterval(intervalId);
     console.log('deviceready');
-    alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
     App.advanceReadiness();
