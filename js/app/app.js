@@ -46,10 +46,13 @@ document.addEventListener("deviceready", function(){
     $('body').addClass(App.cfg.device);
     alert(App.cfg.device);
 }, false);
-/*$(document).ready(function(){
-    console.error('remove dom ready event!');
-    $('body').addClass(App.cfg.device);
-});*/
+
+$(document).ready(function(){
+    if(typeof device === "undefined"){
+        console.error('remove dom ready event!');
+        $('body').addClass(App.cfg.device);
+    }
+});
 
 
 
