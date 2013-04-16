@@ -37,7 +37,9 @@
             {{render "actionBar"}}
         {{/cfgCondFalse}}
 
-        {{outlet}}
+        <div id="outlet">
+            {{outlet}}
+        </div>
 
         {{#cfgCondFalse "device" "Android"}}
             {{render "bottomMenu"}}

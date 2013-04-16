@@ -60,21 +60,18 @@ html {
   background-color: black; }
 
 body.WinCE {
+  height: 100%;
   padding: 0;
   background-color: black;
-  color: #fff;
-  padding-top: 115px; }
+  color: #fff; }
 
 .WinCE {
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
   .WinCE .header {
-    position: fixed;
+    position: relative;
     height: 115px;
-    top: 0;
-    left: 0;
-    right: 0;
     background-color: black;
     z-index: 2;
     padding: 0 24px;
@@ -93,8 +90,7 @@ body.WinCE {
     font-weight: bold; }
   .WinCE h2 {
     font-size: 45px;
-    color: #fff;
-    margin-bottom: 54px; }
+    color: #fff; }
   .WinCE .compass {
     display: block;
     margin: 0 auto;
@@ -116,11 +112,10 @@ body.WinCE {
       text-align: center;
       border-right: 1px solid #aeaeae;
       padding: 40px 10px; }
+  .WinCE #outlet {
+    overflow: auto; }
   .WinCE .bottomMenu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 2;
     padding: 6px 0;
     margin: 0;
@@ -129,6 +124,8 @@ body.WinCE {
       text-align: center;
       list-style: none;
       background: #1f1f1f; }
+      .WinCE .bottomMenu .items li:last-child {
+        margin-right: 0; }
       .WinCE .bottomMenu .items li {
         border: 2px solid white;
         border-radius: 100%;
@@ -138,8 +135,6 @@ body.WinCE {
         height: 28px;
         margin-right: 26px;
         text-align: center; }
-        .WinCE .bottomMenu .items li:last-child {
-          margin-right: 0; }
         .WinCE .bottomMenu .items li .icon {
           line-height: normal;
           font-size: 24px; }

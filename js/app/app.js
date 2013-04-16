@@ -78,6 +78,35 @@ App.Router.map(function() {
     //this.route('accel');
 });
 
+App.ApplicationView = Ember.View.extend({
+    didInsertElement : function(){
+        console.log('application inserted');
+        //wenn windows phone, dann absolute umwandeln
+        if(App.cfg.device === 'WinCE'){
+            setTimeout(function(){
+                console.log('WinCE inserted ApplicationView');
+                var width = window.innerWidth,
+                    height= window.innerHeight;
+
+                var $header = $('.header'),
+                    $outlet = $('#outlet'),
+                    $footer = $('.bottomMenu');
+
+                var newHeight = height - ($header.outerHeight() + $footer.outerHeight());
+
+                console.log('window', height, 'header', $header.outerHeight(), 'footer', $footer.outerHeight());
+                console.log('newHeight', newHeight);
+                $outlet.css({
+                    'height': newHeight
+                });
+
+            }, 10);
+
+        }
+
+
+    }
+});
 App.ApplicationController = Ember.Controller.extend({
     needs: ['actionBar'],
     title: '',
@@ -410,18 +439,14 @@ Handlebars.registerHelper('cfgCondFalse', function(v1, v2, options) {
 
 Ember.Handlebars.registerBoundHelper('routeIcon', function(item){
     var val = item.get('name');
-    console.log('searching for key', val);
     var route = App.cfg.routes[val];
     var icon = route ? route.icon ? route.icon : '&#128683;': '&#128683;';
-    console.log('returning ', icon);
     return new Handlebars.SafeString("" + icon);;
 });
 Ember.Handlebars.registerBoundHelper('routeName', function(item){
     var val = item.get('name');
-    console.log('searching for key', val);
     var route = App.cfg.routes[val];
     var title = route ? route.title ? route.title : '&#128683;': '&#128683;';
-    console.log('returning ', title);
     return new Handlebars.SafeString("" + title);;
 });
 
