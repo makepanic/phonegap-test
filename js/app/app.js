@@ -16,7 +16,7 @@ window.onerror = function(message, url, lineNumber) {
 var App = Ember.Application.create();
 
 App.cfg = {
-    device: 'iOS',
+    device: 'WinCE',
     routes: {
         'index' : {
             title: 'Home',
@@ -86,6 +86,7 @@ App.ApplicationController = Ember.Controller.extend({
 
         var title = route.title ? route.title : 'nop';
 
+        this.set('title', title);
         this.set('controllers.actionBar.title', title);
     }.observes('currentPath')
 });

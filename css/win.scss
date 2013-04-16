@@ -2,9 +2,22 @@
 
 //use --style compressed for compressed .css output
 
-.iPhone{
+$back: #000;
+$font: #fff;
+
+html{
+  background-color: $back;
+}
+body.WinCE{
+  background-color: $back;
+  color: #fff;
+  padding-top:115px;
+}
+.WinCE{
+
+
   /* colors */
-  $abBack: #8b9fba;
+  $abBack: #1f1f1f;
   $abBackGradientTop: #bdcadc;
   $abBackGradientBottom: #5a7598;
 
@@ -23,6 +36,38 @@
   $abButtonBackGradientBottom: #42628e;
   $abButtonBoxShadow: #375075;
   $abButtonBoxShadowOut: #a0afc4;
+
+
+  .header{
+    position: fixed;
+    height:115px;
+    top:0;
+    left:0;
+    right:0;
+    background-color: $back;
+    z-index: 2;
+    padding:0 24px;
+    padding-top: 22px;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: $font;
+    line-height:normal;
+    text-transform: lowercase;
+    font-weight: normal;
+    margin:0;
+  }
+  h1{
+    font-size:15px;
+    color:#fff;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  h2{
+    font-size:45px;
+    color:#fff;
+    margin-bottom: 54px;
+  }
 
   .compass{
     display: block;
@@ -59,30 +104,38 @@
     left:0;
     right:0;
     z-index: 2;
+    padding:6px 0;
     background: $abBack;
 
     .items{
-      border-top:1px solid $abShadowBottom;
       text-align: center;
       list-style: none;
       background: $abBack;
-      @include background-gradient($abButtonBackGradientTop, $abBackGradientBottom);
+
+      $liSize: 28px;
 
       li{
+        border:2px solid $abFont;
+        border-radius: 100%;
         display: inline-block;
         color: $abFont;
-        text-shadow: 0 -1px 0 $abFontShadow;
+        width:$liSize;
+        height:$liSize;
+        margin-right:26px;
+        text-align: center;
+
+        &:last-child{
+          margin-right: 0;
+        }
 
         .icon{
-          line-height:25px;
-          display: block;
-          text-align: center;
-          font-size: 40px;
+          line-height:normal;
+          font-size: 24px;
+
         }
 
         a{
           display: block;
-          padding: 10px 20px;
           color: $abFont;
           text-align: center;
         }
@@ -103,11 +156,6 @@
     display: block;
     padding:2px;
     font-size: 24px;
-    background: $abBack;
-    @include background-gradient($abBackGradientTop, $abBackGradientBottom);
-
-    border-bottom: 1px solid $abBorder;
-    box-shadow: inset 0 -3px 0 $abShadowBottom, inset 0 2px 1px $abShadowTop;
 
     ul{
       list-style: none;

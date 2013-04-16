@@ -55,11 +55,45 @@
 /* TRANSFORM  */
 /* TRANSITION */
 /* TRIPLE BORDERS */
-.iPhone {
+html {
+  background-color: black; }
+
+body.WinCE {
+  background-color: black;
+  color: #fff;
+  padding-top: 115px; }
+
+.WinCE {
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
-  .iPhone .compass {
+  .WinCE .header {
+    position: fixed;
+    height: 115px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    z-index: 2;
+    padding: 0 24px;
+    padding-top: 22px; }
+  .WinCE h1, .WinCE h2, .WinCE h3, .WinCE h4, .WinCE h5, .WinCE h6 {
+    color: white;
+    line-height: normal;
+    text-transform: lowercase;
+    font-weight: normal;
+    margin: 0; }
+  .WinCE h1 {
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: bold; }
+  .WinCE h2 {
+    font-size: 45px;
+    color: #fff;
+    margin-bottom: 54px; }
+  .WinCE .compass {
     display: block;
     margin: 0 auto;
     width: 240px;
@@ -70,51 +104,47 @@
     box-shadow: 0 0 20px #3f5c80;
     border-radius: 100%;
     content: attr(data-deg); }
-  .iPhone .digits {
+  .WinCE .digits {
     font-size: 20px;
-    background: #8b9fba;
+    background: #1f1f1f;
     border: 0;
     border-bottom: 1px solid #aeaeae;
     border-top: 1px solid #aeaeae; }
-    .iPhone .digits > * {
+    .WinCE .digits > * {
       text-align: center;
       border-right: 1px solid #aeaeae;
       padding: 40px 10px; }
-  .iPhone .bottomMenu {
+  .WinCE .bottomMenu {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 2;
-    background: #8b9fba; }
-    .iPhone .bottomMenu .items {
-      border-top: 1px solid #3f5c80;
+    padding: 6px 0;
+    background: #1f1f1f; }
+    .WinCE .bottomMenu .items {
       text-align: center;
       list-style: none;
-      background: #8b9fba;
-      background-color: #869ebc;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#869ebc), to(#5a7598));
-      background-image: -webkit-linear-gradient(top, #869ebc, #5a7598);
-      background-image: -moz-linear-gradient(top, #869ebc, #5a7598);
-      background-image: -ms-linear-gradient(top, #869ebc, #5a7598);
-      background-image: -o-linear-gradient(top, #869ebc, #5a7598);
-      background-image: linear-gradient(top, #869ebc, #5a7598);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor); }
-      .iPhone .bottomMenu .items li {
+      background: #1f1f1f; }
+      .WinCE .bottomMenu .items li {
+        border: 2px solid white;
+        border-radius: 100%;
         display: inline-block;
         color: white;
-        text-shadow: 0 -1px 0 #525b66; }
-        .iPhone .bottomMenu .items li .icon {
-          line-height: 25px;
+        width: 28px;
+        height: 28px;
+        margin-right: 26px;
+        text-align: center; }
+        .WinCE .bottomMenu .items li:last-child {
+          margin-right: 0; }
+        .WinCE .bottomMenu .items li .icon {
+          line-height: normal;
+          font-size: 24px; }
+        .WinCE .bottomMenu .items li a {
           display: block;
-          text-align: center;
-          font-size: 40px; }
-        .iPhone .bottomMenu .items li a {
-          display: block;
-          padding: 10px 20px;
           color: white;
           text-align: center; }
-  .iPhone .actionBar {
+  .WinCE .actionBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -125,41 +155,30 @@
     display: block;
     padding: 2px;
     font-size: 24px;
-    background: #8b9fba;
-    background-color: #bdcadc;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#bdcadc), to(#5a7598));
-    background-image: -webkit-linear-gradient(top, #bdcadc, #5a7598);
-    background-image: -moz-linear-gradient(top, #bdcadc, #5a7598);
-    background-image: -ms-linear-gradient(top, #bdcadc, #5a7598);
-    background-image: -o-linear-gradient(top, #bdcadc, #5a7598);
-    background-image: linear-gradient(top, #bdcadc, #5a7598);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor);
-    border-bottom: 1px solid #aeaeae;
-    box-shadow: inset 0 -3px 0 #3f5c80, inset 0 2px 1px #d4dce9;
     /* back button */
     /* menu button */ }
-    .iPhone .actionBar ul {
+    .WinCE .actionBar ul {
       list-style: none; }
-      .iPhone .actionBar ul li {
+      .WinCE .actionBar ul li {
         display: inline-block; }
-    .iPhone .actionBar > span, .iPhone .actionBar > ul, .iPhone .actionBar > ul span,
-    .iPhone .actionBar > a, .iPhone .actionBar > ul, .iPhone .actionBar > ul a {
+    .WinCE .actionBar > span, .WinCE .actionBar > ul, .WinCE .actionBar > ul span,
+    .WinCE .actionBar > a, .WinCE .actionBar > ul, .WinCE .actionBar > ul a {
       height: 50px;
       color: white;
       text-shadow: 0 -1px 0 #525b66;
       display: inline-block;
       vertical-align: top; }
-    .iPhone .actionBar .back {
+    .WinCE .actionBar .back {
       margin-top: 4px;
       margin-left: 4px;
       padding: 0 10px;
       float: left;
       height: 30px; }
-      .iPhone .actionBar .back > * {
+      .WinCE .actionBar .back > * {
         vertical-align: top;
         display: inline-block;
         font-size: 14px; }
-    .iPhone .actionBar .menu {
+    .WinCE .actionBar .menu {
       position: relative;
       padding: 0 20px;
       font-size: 20px;
@@ -169,9 +188,9 @@
       display: block;
       width: 50%;
       margin: 0 auto; }
-      .iPhone .actionBar .menu p {
+      .WinCE .actionBar .menu p {
         margin-top: 5px; }
-    .iPhone .actionBar .ui-button {
+    .WinCE .actionBar .ui-button {
       z-index: 0;
       background-color: #4a6c9b;
       background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
@@ -180,7 +199,7 @@
       padding: 6px 10px;
       position: relative;
       left: 10px; }
-      .iPhone .actionBar .ui-button.back:before {
+      .WinCE .actionBar .ui-button.back:before {
         display: block;
         content: "";
         width: 20px;

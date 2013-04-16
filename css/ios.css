@@ -59,6 +59,8 @@
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
+  .iOS body {
+    padding-top: 74px; }
   .iOS .compass {
     display: block;
     margin: 0 auto;
