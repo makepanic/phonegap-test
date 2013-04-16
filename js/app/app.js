@@ -17,7 +17,7 @@ var App = Ember.Application.create();
 App.deferReadiness();
 
 App.cfg = {
-    device: 'Android',
+    device: 'WinCE',
     routes: {
         'index' : {
             title: 'Home',
