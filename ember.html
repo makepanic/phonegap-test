@@ -26,14 +26,12 @@
 
     <script type="text/x-handlebars" data-template-name="application">
         {{render "actionBar"}}
-        <div class="row">
-            <div class="large-12 columns">
-                <h1>emberjs playground</h1>
-            </div>
-        </div>
+
         {{outlet}}
 
-        {{render "bottomMenu"}}
+        {{#cfgCondTrue "device" "iPhone"}}
+            {{render "bottomMenu"}}
+        {{/cfgCondTrue}}
 
     </script>
 
@@ -126,7 +124,7 @@
             {{#if view.expanded}}
             <ul class="items">
                 {{#each nav in controller.navigations}}
-                <li><a href="#"  {{action goToLink nav}}>{{nav}}</a></li>
+                <li><a href="#"  {{action goToLink nav.name}}>{{routeName nav}}</a></li>
                 {{/each}}
             </ul>
             {{/if}}
@@ -192,6 +190,7 @@
     </script>-->
 
     <script src="js/vendor/phonegap.js"></script>
+    <script src="phonegap.js"></script>
     <script src="js/vendor/jquery-1.9.1.js"></script>
     <script src="js/vendor/handlebars.js"></script>
     <script src="js/vendor/ember-1.0.0-rc.2.js"></script>

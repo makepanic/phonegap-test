@@ -42,13 +42,13 @@ App.cfg = {
 };
 
 document.addEventListener("deviceready", function(){
-    App.cfg.device = q || 'desktop';
+    App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
 }, false);
-$(document).ready(function(){
+/*$(document).ready(function(){
     console.error('remove dom ready event!');
     $('body').addClass(App.cfg.device);
-})
+});*/
 
 
 
@@ -80,7 +80,12 @@ App.ApplicationController = Ember.Controller.extend({
     needs: ['actionBar'],
     title: '',
     updateTitle: function() {
-        this.set('controllers.actionBar.title', this.get('currentPath'));
+        var path = this.get('currentPath');
+        var route = App.cfg.routes[path];
+
+        var title = route.title ? route.title : 'nop';
+
+        this.set('controllers.actionBar.title', title);
     }.observes('currentPath')
 });
 App.ApplicationRoute = Ember.Route.extend({
@@ -159,8 +164,10 @@ App.ActionBarController = Ember.ObjectController.extend({
         var navs = [];
         for(var name in names){
             if (names.hasOwnProperty(name)) {
+                var nav = new Ember.Object();
+                nav.set('name', name);
                 //console.log('found', name);
-                navs.push(name);
+                navs.push(nav);
             }
         }
         //console.log(navs);
