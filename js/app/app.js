@@ -90,7 +90,7 @@ App.LoadingView = Ember.View.extend({
     didInsertElement: function(){
         var height = window.innerHeight;
         this.$().css({
-            'height' : height + 100
+            'height' : height
         }).find('.loading-animation').css({
             'height' : height
         })
@@ -102,7 +102,7 @@ App.LoadingView = Ember.View.extend({
     }.observes('hidden'),
     hide: function(){
         var that = this;
-        this.$().fadeOut("slow", function() {
+        this.$().slideUp("fast", function() {
             that.set('isVisible', false);
         });
     }

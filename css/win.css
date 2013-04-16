@@ -70,7 +70,8 @@ body.WinCE {
   /* digit clock display */
   /* Android ActionBar element */ }
   .WinCE .loading {
-    background: black; }
+    background: black;
+    position: relative; }
     .WinCE .loading .loading-animation {
       background: url("../img/animated_loader.gif") no-repeat center;
       width: 100%;

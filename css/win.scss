@@ -41,6 +41,7 @@ body.WinCE{
 
   .loading{
     background: $back;
+    position: relative;
 
     .loading-animation{
       background: url("../img/animated_loader.gif") no-repeat center;
