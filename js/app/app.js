@@ -44,6 +44,7 @@ App.cfg = {
 document.addEventListener("deviceready", function(){
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
+    alert(App.cfg.device);
 }, false);
 /*$(document).ready(function(){
     console.error('remove dom ready event!');
