@@ -1,0 +1,27 @@
+@mixin iosButton($back: #aaa, $border: #777){
+  padding: 10px;
+  background: $back;
+  border: 1px solid $border;
+  box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 -1px 0 rgba(0,0,0,.3);
+  background-image : -webkit-linear-gradient(
+      bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 50%,
+      rgba(255,255,255,0.3) 50%,
+      rgba(255,255,255,0.5) 100%
+  );
+  color:#fff;
+  text-shadow: 0 -1px 1px rgba(0,0,0,.5);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+@mixin androidButton($back: #d2d2d2, $font: #333, $shadow: #c8c8c8, $borderTop: #d2d2d2, $borderBottom: #767676){
+  border-radius:2px;
+  border-top:1px solid $borderTop;
+  border-bottom:1px solid $borderBottom;
+  padding:10px 20px;
+  box-shadow:0 1px 2px $shadow;
+  background: $back;
+  color: $font;
+}

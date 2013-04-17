@@ -17,7 +17,7 @@ var App = Ember.Application.create();
 App.deferReadiness();
 
 App.cfg = {
-    device: 'iOS',
+    device: 'WinCE',
     routes: {
         'index' : {
             title: 'Home',
@@ -62,7 +62,7 @@ intervalId = setInterval(function() {
 }, 500);
 
 $(document).ready(function(){
-    alert('dom ready');
+    //alert('dom ready');
     //document.addEventListener("deviceready", isReady, false);
     $(document).on('deviceready', isReady);
 });
@@ -76,6 +76,7 @@ var desktop = function(){
 
 
 
+
 Ember.View.reopen({
     didInsertElement: function() {
         this.set('elementIsInserted', true);
@@ -84,6 +85,7 @@ Ember.View.reopen({
 
     willDestroyElement: function() {
         this.set('elementIsInserted', false);
+        this.$().slideDown("fast");
         this._super();
     }
 });

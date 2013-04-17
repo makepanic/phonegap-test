@@ -1,8 +1,17 @@
 @import "css3-mixins.scss";
+@import "mixins.scss";
 
 //use --style compressed for compressed .css output
 
+
+body.iOS{
+  background: #cbd0d9;
+}
+
 .iOS{
+  $black: #000;
+  $textShadowWhite: #f2f3f6;
+
   /* colors */
   $abBack: #8b9fba;
   $abBackGradientTop: #bdcadc;
@@ -24,8 +33,221 @@
   $abButtonBoxShadow: #375075;
   $abButtonBoxShadowOut: #a0afc4;
 
-  body{
-    padding-top:74px;
+  $listviewBack: #f7f7f7;
+  $listviewBorder: #b7b9bd;
+  $listviewItemBorderBottom: #cacaca;
+  $listviewItemBorderTop: #fff;
+
+
+  $normalButtonBorder:#777;
+  $normalButtonBack: #aaa;
+  $importantButtonBack: #cf2b2d;
+  $importantButtonBorder: #901e1f;
+  $successButtonBack: #179714;
+  $successButtonBorder: #096106;
+  .osButton{
+    display:inline-block;
+    @include iosButton($normalButtonBack, $normalButtonBorder);
+  }
+  .osButton.important{
+    @include iosButton($importantButtonBack, $importantButtonBorder);
+  }
+  .osButton.success{
+    @include iosButton($successButtonBack, $successButtonBorder);
+  }
+
+  .sectionHeader, .sectionText{
+    padding: 0 18px + 15px;
+    text-shadow: 0 1px 0 $textShadowWhite;
+  }
+  .sectionText{
+    margin-bottom: 10px;
+  }
+  .sectionHeader{
+    font-size: 20px;
+  }
+
+  .listview{
+    background: $listviewBack;
+    color:$black;
+    border:1px solid $listviewBorder;
+    box-shadow: inset 0 1px 1px #939393, 0 1px 2px #fff;
+    list-style: none;
+    border-radius: 15px;
+    overflow: hidden;
+
+    margin: 0 15px;
+    margin-bottom: 15px;
+
+    li{
+      border-bottom: 1px solid $listviewItemBorderBottom;
+      border-top: 1px solid $listviewItemBorderTop;
+      padding: 8px 10px;
+      font-size: 20px;
+
+      .subText{
+        font-size:18px;
+        font-weight: normal;
+      }
+
+      &.buttonItem{
+        padding:0;
+
+        a{
+          display: block;
+          padding:8px 10px;
+          font-weight: bold;
+          color: $black;
+        }
+
+      }
+
+      $arrowColor: #7f7f7f;
+
+      &.arrow{
+        p{
+          display: inline-block;
+        }
+        .icon{
+          font-size: 60px;
+          line-height: 32px;
+          float:right;
+          color:$arrowColor;
+        }
+      }
+
+      p{
+        font-weight: bold;
+        display: inline-block;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+
+      &:last-child{
+        border-bottom: 0;
+      }
+      &:first-child{
+        border-top: 0;
+      }
+    }
+
+  }
+
+  .arrowbox{
+    float:right;
+    display: inline-block;
+
+    $arrowColor: #324f85;
+
+    .icon{
+      color: $arrowColor;
+      font-size:45px;
+      font-weight: normal;
+      line-height: 32px;
+    }
+
+    input{
+      display: none;
+
+      &:checked ~ label{
+        b{
+          visibility: visible;
+        }
+      }
+      & ~ label{
+        b {
+          visibility: hidden;
+        }
+      }
+    }
+
+  }
+
+  .togglebox{
+
+    float:right;
+
+    display:inline-block;
+    border:1px solid #BBB;
+    width:90px;
+    height:30px;
+    position:relative;
+    border-radius:20px;
+    color:#FFF;
+    font-weight:bold;
+    overflow:hidden;
+    box-shadow:0 1px 0 #CCC;
+
+    input{
+      display: none;
+
+      &:checked ~ label{
+        left:-60px;
+      }
+    }
+
+    label{
+      width:200%;
+      height:100%;
+      line-height:30px;
+      border-radius:0.4em;
+      position:absolute;
+      top:0;
+      left:0;
+      z-index:1;
+      font-size:11px;
+      cursor:pointer;
+      -webkit-transition:0.12s;
+      -moz-transition:0.12s;
+      transition:0.12s;
+
+      b{
+        display:block;
+        height:100%;
+        width:30px;
+        float:left;
+        position:relative;
+        z-index:1;
+        border:1px solid #AAA;
+        background:#F6F6F6;
+        box-shadow:0 4px 0 -2px #F1F1F1 inset, 0 2em 2em -2em #AAA inset, 0 0 2px rgba(0,0,0,.5);
+        border-radius:20px;
+      }
+
+      &:before,&:after{
+        width:75px;
+        float:left;
+        text-align:center;
+      }
+
+      &:before{
+        content:'ON';
+        margin-right:-16px;
+        padding-right:13px;
+        background:#007FEA;
+        text-shadow:0 -1px 0px #093B5C;
+        box-shadow:0 4px 5px -2px rgba(0,0,0,0.3) inset;
+      }
+      &:after{
+        content:'OFF';
+        margin-left:-15px;
+        padding-left:13px;
+        color:#999;
+        background:#FFF;
+        box-shadow:0 4px 5px -2px rgba(0,0,0,0.3) inset;
+      }
+
+      &:hover b{
+        background:#E5E5E5;
+      }
+    }
+
+    span{
+      position:absolute;
+      right:-100px;
+    }
+
+
   }
 
   .loading{

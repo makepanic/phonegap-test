@@ -55,13 +55,171 @@
 /* TRANSFORM  */
 /* TRANSITION */
 /* TRIPLE BORDERS */
+body.iOS {
+  background: #cbd0d9; }
+
 .iOS {
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */
   /* general html */ }
-  .iOS body {
-    padding-top: 74px; }
+  .iOS .osButton {
+    display: inline-block;
+    padding: 10px;
+    background: #aaaaaa;
+    border: 1px solid #777777;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.5) 100%);
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    font-weight: bold; }
+  .iOS .osButton.important {
+    padding: 10px;
+    background: #cf2b2d;
+    border: 1px solid #901e1f;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.5) 100%);
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    font-weight: bold; }
+  .iOS .osButton.success {
+    padding: 10px;
+    background: #179714;
+    border: 1px solid #096106;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.5) 100%);
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    font-weight: bold; }
+  .iOS .sectionHeader, .iOS .sectionText {
+    padding: 0 33px;
+    text-shadow: 0 1px 0 #f2f3f6; }
+  .iOS .sectionText {
+    margin-bottom: 10px; }
+  .iOS .sectionHeader {
+    font-size: 20px; }
+  .iOS .listview {
+    background: #f7f7f7;
+    color: black;
+    border: 1px solid #b7b9bd;
+    box-shadow: inset 0 1px 1px #939393, 0 1px 2px #fff;
+    list-style: none;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 15px;
+    margin-bottom: 15px; }
+    .iOS .listview li {
+      border-bottom: 1px solid #cacaca;
+      border-top: 1px solid white;
+      padding: 8px 10px;
+      font-size: 20px; }
+      .iOS .listview li .subText {
+        font-size: 18px;
+        font-weight: normal; }
+      .iOS .listview li.buttonItem {
+        padding: 0; }
+        .iOS .listview li.buttonItem a {
+          display: block;
+          padding: 8px 10px;
+          font-weight: bold;
+          color: black; }
+      .iOS .listview li.arrow p {
+        display: inline-block; }
+      .iOS .listview li.arrow .icon {
+        font-size: 60px;
+        line-height: 32px;
+        float: right;
+        color: #7f7f7f; }
+      .iOS .listview li p {
+        font-weight: bold;
+        display: inline-block;
+        padding-top: 2px;
+        padding-bottom: 2px; }
+      .iOS .listview li:last-child {
+        border-bottom: 0; }
+      .iOS .listview li:first-child {
+        border-top: 0; }
+  .iOS .arrowbox {
+    float: right;
+    display: inline-block; }
+    .iOS .arrowbox .icon {
+      color: #324f85;
+      font-size: 45px;
+      font-weight: normal;
+      line-height: 32px; }
+    .iOS .arrowbox input {
+      display: none; }
+      .iOS .arrowbox input:checked ~ label b {
+        visibility: visible; }
+      .iOS .arrowbox input ~ label b {
+        visibility: hidden; }
+  .iOS .togglebox {
+    float: right;
+    display: inline-block;
+    border: 1px solid #BBB;
+    width: 90px;
+    height: 30px;
+    position: relative;
+    border-radius: 20px;
+    color: #FFF;
+    font-weight: bold;
+    overflow: hidden;
+    box-shadow: 0 1px 0 #CCC; }
+    .iOS .togglebox input {
+      display: none; }
+      .iOS .togglebox input:checked ~ label {
+        left: -60px; }
+    .iOS .togglebox label {
+      width: 200%;
+      height: 100%;
+      line-height: 30px;
+      border-radius: 0.4em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      font-size: 11px;
+      cursor: pointer;
+      -webkit-transition: 0.12s;
+      -moz-transition: 0.12s;
+      transition: 0.12s; }
+      .iOS .togglebox label b {
+        display: block;
+        height: 100%;
+        width: 30px;
+        float: left;
+        position: relative;
+        z-index: 1;
+        border: 1px solid #AAA;
+        background: #F6F6F6;
+        box-shadow: 0 4px 0 -2px #f1f1f1 inset, 0 2em 2em -2em #aaaaaa inset, 0 0 2px rgba(0, 0, 0, 0.5);
+        border-radius: 20px; }
+      .iOS .togglebox label:before, .iOS .togglebox label:after {
+        width: 75px;
+        float: left;
+        text-align: center; }
+      .iOS .togglebox label:before {
+        content: 'ON';
+        margin-right: -16px;
+        padding-right: 13px;
+        background: #007FEA;
+        text-shadow: 0 -1px 0px #093B5C;
+        box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.3) inset; }
+      .iOS .togglebox label:after {
+        content: 'OFF';
+        margin-left: -15px;
+        padding-left: 13px;
+        color: #999;
+        background: #FFF;
+        box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.3) inset; }
+      .iOS .togglebox label:hover b {
+        background: #E5E5E5; }
+    .iOS .togglebox span {
+      position: absolute;
+      right: -100px; }
   .iOS .loading {
     position: fixed;
     top: 0;

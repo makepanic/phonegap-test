@@ -4,6 +4,7 @@
 
 $back: #000;
 $font: #fff;
+$fontDarker: #aaa;
 
 html{
   padding:0;
@@ -38,6 +39,91 @@ body.WinCE{
   $abButtonBackGradientBottom: #42628e;
   $abButtonBoxShadow: #375075;
   $abButtonBoxShadowOut: #a0afc4;
+
+  .osButton,.buttonItem a{
+    border:2px solid $font;
+    padding: 5px 10px;
+    display: inline-block;
+    color:$font;
+  }
+
+  .sectionHeader, .sectionText, .listview{
+    padding:0 24px;
+    display: block;
+    margin-bottom: 12px;
+
+  }
+  .sectionHeader{
+    font-size: 30px;
+    color:$font;
+  }
+
+  .sectionText{
+    font-size:16px;
+    color: $fontDarker;
+  }
+
+  .listview{
+    list-style: none;
+
+    p{
+      display: inline-block;
+
+      .checkLabel{
+        font-size:20px;
+      }
+    }
+
+    $size: 25px;
+
+    .arrow .icon{
+      display: none;
+    }
+    .togglebox, .arrowbox{
+      display: block;
+      float: left;
+      margin-right: 10px;
+
+      input{
+        display: inline-block;
+        border:1px solid #bfbfbf;
+        font-size: $size;
+        width:$size;
+        height:$size;
+        background: #bfbfbf;
+        padding: floor($size/6);
+
+        &+label{
+          display: none;
+        }
+      }
+      b.icon{
+        display: none;
+      }
+
+    }
+
+    li{
+      display:block;
+      margin-bottom: 12px;
+      p{
+        font-size: 30px;
+        display: inline-block;
+
+        &.subText{
+          font-size:18px;
+          font-weight: normal;
+          color: $fontDarker;
+        }
+
+        & + .subText + div{
+          display: block;
+          float:right;
+        }
+      }
+    }
+  }
+
 
   .loading{
     background: $back;
