@@ -1,8 +1,8 @@
 "use strict"
 
-window.onerror = function(message, url, lineNumber) {
+/*window.onerror = function(message, url, lineNumber) {
     console.log("Error: "+message+" in "+url+" at line "+lineNumber);
-}
+}*/
 
 //List Product
 
@@ -17,7 +17,7 @@ var App = Ember.Application.create();
 App.deferReadiness();
 
 App.cfg = {
-    device: 'WinCE',
+    device: 'Android',
     routes: {
         'index' : {
             title: 'Home',
@@ -35,9 +35,13 @@ App.cfg = {
             icon : '&#59176;',
             title: 'Kompass'
         },
-        'notify' : {
+        'props' : {
             icon : '&#9889;',
-            title : 'Notify'
+            title : 'Properties'
+        },
+        'contacts':{
+            icon: '&#128101;',
+            title: 'Kontakte'
         }
     }
 };
@@ -51,15 +55,47 @@ var isReady = function(){
     alert('deviceready');
     App.cfg.device = device.platform || 'desktop';
     $('body').addClass(App.cfg.device);
-    App.advanceReadiness();
+
+
+    //fill contacts with phonegap data
+    var fields = ["id", 'displayName', 'name', 'nickname', 'birthday', 'note'];
+    var options = new ContactFindOptions();
+    options.filter = '';
+    options.multiple = true;
+    navigator.contacts.find(fields, function(contacts){
+
+        console.log('success finding contacts: count = ' + contacts.length);
+        for (var i=0; i<contacts.length; i++) {
+            var contact = contacts[i];
+            var realId = i + 1;
+            App.PhonegapContact.FIXTURES.push({
+                id: realId,
+                pid: contact['id'],
+                displayName: contact['displayName'],
+                name: contact['name'],
+                nickname: contact['nickname'],
+                birthday: contact['birthday'],
+                note: contact['note']
+            });
+
+        }
+
+
+
+        App.advanceReadiness();
+    }, function(){
+        console.error('error finding contacts');
+    }, options);
+
 };
 
-
+/*
 intervalId = setInterval(function() {
     if (PhoneGap.available) {
         isReady();
     }
 }, 500);
+*/
 
 $(document).ready(function(){
     //alert('dom ready');
@@ -73,6 +109,10 @@ var desktop = function(){
     App.advanceReadiness();
 };
 
+setTimeout(function(){
+
+    desktop();
+}, 1000);
 
 
 
@@ -98,8 +138,23 @@ App.Router.map(function() {
     this.route('photo');
     this.route('clock');
     this.route('compass');
-    this.route('notify');
+    this.route('props');
+    this.route('list');
+    this.resource('contact', { path: '/contact/:contact_id' });
+    this.route('contacts');
     //this.route('accel');
+});
+
+App.ContactsRoute = Ember.Route.extend({
+    model: function(param){
+        return App.PhonegapContact.find();
+    }
+});
+App.ContactRoute = Ember.Route.extend({
+    model: function(param){
+        console.log('contact_id', param.contact_id);
+        return App.PhonegapContact.find(param.contact_id) ;
+    }
 });
 
 App.LoadingView = Ember.View.extend({
@@ -192,7 +247,7 @@ App.ApplicationController = Ember.Controller.extend({
         var path = this.get('currentPath');
         var route = App.cfg.routes[path];
 
-        var title = route.title ? route.title : 'nop';
+        var title = route ? route.title ? route.title : 'nop' : 'no route';
 
         this.set('title', title);
         this.set('controllers.actionBar.title', title);
@@ -447,15 +502,6 @@ App.CompassController = Ember.ObjectController.extend({
     }
 });
 
-App.NotifyController = Ember.ObjectController.extend({
-   fireNotification : function(){
-       navigator.notification.vibrate(1000);
-       navigator.notification.alert("WASD", function(){
-           //console.log('alert callback');
-       });
-   }
-});
-
 /*
 App.AccelView = Ember.View.extend({
     templateName: 'accel',
@@ -529,20 +575,82 @@ Ember.Handlebars.registerBoundHelper('routeName', function(item){
 });
 
 /*
-App.UploadFileView = Ember.TextField.extend({
-    type: 'file',
-    attributeBindings: ['name'],
-    change: function(evt) {
-        var self = this;
-        var input = evt.target;
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            var that = this;
-            reader.onload = function(e) {
-                var fileToUpload = e.srcElement.result;
-                self.get('controller').set(self.get('name'), fileToUpload);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
+* Contact View & Controller
+* */
+
+
+/**
+ * List Views & Controllers
+ */
+
+
+App.ListItemsView = Ember.View.extend({
+    templateName: 'listItems',
+    tagName: 'ul'
+});
+
+App.ContactItemsView = Ember.View.extend({
+    templateName: 'contactList',
+    tagName: 'ul'
+});
+
+
+
+/*
+* Property Views & Controllers
+* */
+
+
+App.PropertyItemView = Ember.View.extend({
+    tagName: 'li',
+    title: '',
+    subText: '',
+    hasSubtext: function(){
+        var subText = this.get('subtext');
+        return subText ? subText.length > 0 : false;
+    }.property('subtext'),
+    touchStart: function(e){
+        this.get('controller').send(this.get('action'));
     }
-});   */
+});
+App.StatePropertyItemView = App.PropertyItemView.extend({
+    enabled: false,
+    touchStart: function(e){
+        this.toggleProperty('enabled');
+        this.get('controller').toggleProperty(this.get('property'))
+    }
+});
+
+App.ArrowPropertyView = App.PropertyItemView.extend({
+    templateName: 'arrowPropertyItem',
+    classNames: ['arrow']
+});
+
+App.TogglePropertyView = App.StatePropertyItemView.extend({
+    templateName: 'togglePropertyItem'
+});
+App.CheckPropertyView = App.StatePropertyItemView.extend({
+    templateName: 'checkPropertyItem'
+});
+
+App.PropertiesView = Ember.View.extend({
+    tagName: 'ul',
+    classNames: ['propertiesView']
+});
+
+App.PropsController = Ember.Controller.extend({
+    tos: false,
+    wifi: false,
+    logTest: function(){
+        console.log('logTest');
+    },
+    gotoPhotos: function(){
+        console.log('gotoPhotos');
+    },
+    fireNotification: function(){
+        navigator.notification.vibrate(1000);
+        navigator.notification.alert("WASD", function(){
+            //console.log('alert callback');
+        });
+    }
+});

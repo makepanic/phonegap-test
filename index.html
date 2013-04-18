@@ -184,7 +184,73 @@
         </div>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="notify">
+
+    <script type="text/x-handlebars" data-template-name="arrowPropertyItem">
+        <p>{{view.title}}</p>
+        <div class="icon">&#59230;</div>
+        {{#if view.hasSubtext}}
+            <p class="subText">{{view.subtext}}</p>
+        {{/if}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="togglePropertyItem">
+        <p>{{view.title}}</p>
+
+        <div class="togglebox">
+            <input type='checkbox' id="chkbx" {{bindAttr checked="view.enabled"}}/>
+            <label for="chkbx">
+                <b></b>
+            </label>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="checkPropertyItem">
+        <p>{{view.title}}</p>
+        <div class="arrowbox">
+            <input type="checkbox" id="rdio" {{bindAttr checked="view.enabled"}} />
+            <label for="rdio">
+                <b class="icon">&#10003;</b>
+            </label>
+        </div>
+        {{#if view.hasSubtext}}
+            <p class="subText">{{view.subtext}}</p>
+        {{/if}}
+    </script>
+    
+    <script type="text/x-handlebars" data-template-name="props">
+        <h4>controller debug:</h4>
+        <ul>
+            <li>
+                <strong>wifi</strong>
+                <i>
+                    {{#if wifi}}
+                    enabled
+                    {{else}}
+                    disabled
+                    {{/if}}
+                </i>
+            </li>
+            <li>
+                <strong>tos</strong>
+                <i>
+                    {{#if tos}}
+                    accepted
+                    {{else}}
+                    not accepted
+                    {{/if}}
+                </i>
+            </li>
+        </ul>
+
+
+        <h4 class="sectionHeader">App.ListItemView and Items</h4>
+
+        {{#view App.PropertiesView }}
+            {{view App.ArrowPropertyView action="logTest" title="Subtext ArrowView" subtext="lorem ipsum wasd"}}
+            {{view App.ArrowPropertyView action="gotoPhotos" title="GotoPhotos" subtext="lorem ipsum wasd"}}
+            {{view App.CheckPropertyView property="tos" title="accept TOS"}}
+            {{view App.TogglePropertyView property="wifi" title="Wifi"}}
+        {{/view}}
 
         <h4 class="sectionHeader">Table Label</h4>
 
@@ -196,64 +262,39 @@
 
         <p class="sectionText">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
 
-        <ul class="listview">
-            <li>
-                <p>Label</p>
-
-                <div class="togglebox">
-                    <input checked="false" type='checkbox' id="chkbx"/>
-                    <label for="chkbx">
-                        <b></b>
-                    </label>
-                </div>
-            </li>
-
-            <li>
-                <p>Label</p>
-                <div class="arrowbox">
-                    <input checked type="checkbox" id="rdio"/>
-                    <label for="rdio">
-                        <b class="icon">&#10003;</b>
-                    </label>
-                </div>
-                <p class="subText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-            </li>
-
-            <li>
-                <p>Label</p>
-                <div class="arrowbox">
-                    <input checked type="checkbox" id="rdio2"/>
-                    <label for="rdio2">
-                        <b class="icon">&#10003;</b>
-                    </label>
-
-                </div>
-            </li>
-
-            <li class="arrow">
-                <p>Label</p>
-                <div class="icon">&#59230;</div>
-                <p class="subText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </li>
-
-            <li>
-                <p>Label</p>
-                <div class='togglebox'>
-                    <input checked="false" type='checkbox' id="chkbx2"/>
-                    <label for='chkbx2'>
-                        <b></b>
-                    </label>
-                </div>
-            </li>
-        </ul>
+        <h4 class="sectionHeader">Table Label</h4>
 
     </script>
 
     <script type="text/x-handlebars" data-template-name="clock">
         {{view App.ClockDigitDisplayView}}
-        <button {{action "start"}}>start</button>
-        <button {{action "stop"}}>stop</button>
+        <button class="osButton success" {{action "start"}}>start</button>
+        <button class="osButton error" {{action "stop"}}>stop</button>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="contactList">
+        {{#each controller}}
+            <li>
+                {{#linkTo "contact" this}}
+                    <pre>{{pid}} - {{displayName}}</pre>
+                {{/linkTo}}
+            </li>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="contacts">
+
+        {{view App.ContactItemsView}}
+    </script>
+    <script type="text/x-handlebars" data-template-name="contact">
+        <h4 class="sectionHeader">Details</h4>
+        {{#view App.PropertiesView }}
+            {{view App.ArrowPropertyView titleBinding="displayName" subtext="displayName"}}
+            {{view App.ArrowPropertyView titleBinding="name" subtext="name"}}
+            {{view App.ArrowPropertyView titleBinding="nickname" subtext="nickname"}}
+            {{view App.ArrowPropertyView titleBinding="birthday" subtext="birthday"}}
+            {{view App.ArrowPropertyView titleBinding="pid" subtext="pid"}}
+        {{/view}}
     </script>
 
     <!--<script type="text/x-handlebars" data-template-name="accel">

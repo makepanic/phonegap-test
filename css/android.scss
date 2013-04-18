@@ -7,7 +7,7 @@ body.Android{
 }
 
 $blue: #33B5E5;
-$listviewBorder:#dfdfdf;
+$propertiesViewBorder:#dfdfdf;
 
 .Android{
   /* colors */
@@ -41,11 +41,11 @@ $listviewBorder:#dfdfdf;
     @include androidButton($importantBack, $importantFont, $importantShadow, $importantBorderTop, $importantBorderBottom);
   }
 
-  .listview{
+  .propertiesView{
     display:block;
 
     li{
-      border-bottom: 1px solid $listviewBorder;
+      border-bottom: 1px solid $propertiesViewBorder;
       padding:17px 7px;
     }
 
@@ -70,6 +70,11 @@ $listviewBorder:#dfdfdf;
         width:$size;
         height:$size;
         margin-right: floor($size / 4);
+        border:1px solid #5a5a5a;
+
+        &:checked{
+          background:#1ce;
+        }
       }
     }
     .arrowbox{
@@ -88,7 +93,7 @@ $listviewBorder:#dfdfdf;
     }
   }
 
-  .sectionHeader, .sectionText, .listview{
+  .sectionHeader, .sectionText, .propertiesView{
     margin:2px 10px;
   }
   .sectionHeader{

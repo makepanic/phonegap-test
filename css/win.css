@@ -63,18 +63,19 @@ body.WinCE {
   height: 100%;
   padding: 0;
   background-color: black;
-  color: #fff; }
+  color: white; }
 
 .WinCE {
   /* colors */
   /* digit clock display */
   /* Android ActionBar element */ }
   .WinCE .osButton, .WinCE .buttonItem a {
+    background: black;
     border: 2px solid white;
     padding: 5px 10px;
     display: inline-block;
     color: white; }
-  .WinCE .sectionHeader, .WinCE .sectionText, .WinCE .listview {
+  .WinCE .sectionHeader, .WinCE .sectionText, .WinCE .propertiesView {
     padding: 0 24px;
     display: block;
     margin-bottom: 12px; }
@@ -83,20 +84,20 @@ body.WinCE {
     color: white; }
   .WinCE .sectionText {
     font-size: 16px;
-    color: #aaaaaa; }
-  .WinCE .listview {
+    color: #b3b3b3; }
+  .WinCE .propertiesView {
     list-style: none; }
-    .WinCE .listview p {
+    .WinCE .propertiesView p {
       display: inline-block; }
-      .WinCE .listview p .checkLabel {
+      .WinCE .propertiesView p .checkLabel {
         font-size: 20px; }
-    .WinCE .listview .arrow .icon {
+    .WinCE .propertiesView .arrow .icon {
       display: none; }
-    .WinCE .listview .togglebox, .WinCE .listview .arrowbox {
+    .WinCE .propertiesView .togglebox, .WinCE .propertiesView .arrowbox {
       display: block;
       float: left;
       margin-right: 10px; }
-      .WinCE .listview .togglebox input, .WinCE .listview .arrowbox input {
+      .WinCE .propertiesView .togglebox input, .WinCE .propertiesView .arrowbox input {
         display: inline-block;
         border: 1px solid #bfbfbf;
         font-size: 25px;
@@ -104,21 +105,21 @@ body.WinCE {
         height: 25px;
         background: #bfbfbf;
         padding: 4px; }
-        .WinCE .listview .togglebox input + label, .WinCE .listview .arrowbox input + label {
+        .WinCE .propertiesView .togglebox input + label, .WinCE .propertiesView .arrowbox input + label {
           display: none; }
-      .WinCE .listview .togglebox b.icon, .WinCE .listview .arrowbox b.icon {
+      .WinCE .propertiesView .togglebox b.icon, .WinCE .propertiesView .arrowbox b.icon {
         display: none; }
-    .WinCE .listview li {
+    .WinCE .propertiesView li {
       display: block;
       margin-bottom: 12px; }
-      .WinCE .listview li p {
+      .WinCE .propertiesView li p {
         font-size: 30px;
         display: inline-block; }
-        .WinCE .listview li p.subText {
+        .WinCE .propertiesView li p.subText {
           font-size: 18px;
           font-weight: normal;
-          color: #aaaaaa; }
-        .WinCE .listview li p + .subText + div {
+          color: #b3b3b3; }
+        .WinCE .propertiesView li p + .subText + div {
           display: block;
           float: right; }
   .WinCE .loading {
@@ -143,13 +144,11 @@ body.WinCE {
     margin: 0; }
   .WinCE h1 {
     font-size: 15px;
-    color: #fff;
     text-transform: uppercase;
     margin-bottom: 6px;
     font-weight: bold; }
   .WinCE h2 {
-    font-size: 45px;
-    color: #fff; }
+    font-size: 45px; }
   .WinCE .compass {
     display: block;
     margin: 0 auto;
@@ -163,10 +162,10 @@ body.WinCE {
     content: attr(data-deg); }
   .WinCE .digits {
     font-size: 20px;
-    background: #1f1f1f;
+    background: #1a1a1a;
     border: 0;
-    border-bottom: 1px solid #aeaeae;
-    border-top: 1px solid #aeaeae; }
+    border-bottom: 1px solid #b3b3b3;
+    border-top: 1px solid #b3b3b3; }
     .WinCE .digits > * {
       text-align: center;
       border-right: 1px solid #aeaeae;
@@ -176,11 +175,11 @@ body.WinCE {
     z-index: 2;
     padding: 6px 0;
     margin: 0;
-    background: #1f1f1f; }
+    background: #1a1a1a; }
     .WinCE .bottomMenu .items {
       text-align: center;
       list-style: none;
-      background: #1f1f1f; }
+      background: #1a1a1a; }
       .WinCE .bottomMenu .items li:last-child {
         margin-right: 0; }
       .WinCE .bottomMenu .items li {

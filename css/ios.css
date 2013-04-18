@@ -101,7 +101,7 @@ body.iOS {
     margin-bottom: 10px; }
   .iOS .sectionHeader {
     font-size: 20px; }
-  .iOS .listview {
+  .iOS .propertiesView {
     background: #f7f7f7;
     color: black;
     border: 1px solid #b7b9bd;
@@ -111,36 +111,36 @@ body.iOS {
     overflow: hidden;
     margin: 0 15px;
     margin-bottom: 15px; }
-    .iOS .listview li {
+    .iOS .propertiesView li {
       border-bottom: 1px solid #cacaca;
       border-top: 1px solid white;
       padding: 8px 10px;
       font-size: 20px; }
-      .iOS .listview li .subText {
+      .iOS .propertiesView li .subText {
         font-size: 18px;
         font-weight: normal; }
-      .iOS .listview li.buttonItem {
+      .iOS .propertiesView li.buttonItem {
         padding: 0; }
-        .iOS .listview li.buttonItem a {
+        .iOS .propertiesView li.buttonItem a {
           display: block;
           padding: 8px 10px;
           font-weight: bold;
           color: black; }
-      .iOS .listview li.arrow p {
+      .iOS .propertiesView li.arrow p {
         display: inline-block; }
-      .iOS .listview li.arrow .icon {
+      .iOS .propertiesView li.arrow .icon {
         font-size: 60px;
         line-height: 32px;
         float: right;
         color: #7f7f7f; }
-      .iOS .listview li p {
+      .iOS .propertiesView li p {
         font-weight: bold;
         display: inline-block;
         padding-top: 2px;
         padding-bottom: 2px; }
-      .iOS .listview li:last-child {
+      .iOS .propertiesView li:last-child {
         border-bottom: 0; }
-      .iOS .listview li:first-child {
+      .iOS .propertiesView li:first-child {
         border-top: 0; }
   .iOS .arrowbox {
     float: right;

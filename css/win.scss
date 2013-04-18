@@ -3,8 +3,9 @@
 //use --style compressed for compressed .css output
 
 $back: #000;
+$backLighter: lighten($back, 10%);
 $font: #fff;
-$fontDarker: #aaa;
+$fontDarker: darken($font, 30%);
 
 html{
   padding:0;
@@ -14,7 +15,7 @@ body.WinCE{
   height:100%;
   padding:0;
   background-color: $back;
-  color: #fff;
+  color: $font;
 }
 .WinCE{
 
@@ -41,13 +42,14 @@ body.WinCE{
   $abButtonBoxShadowOut: #a0afc4;
 
   .osButton,.buttonItem a{
+    background: $back;
     border:2px solid $font;
     padding: 5px 10px;
     display: inline-block;
     color:$font;
   }
 
-  .sectionHeader, .sectionText, .listview{
+  .sectionHeader, .sectionText, .propertiesView{
     padding:0 24px;
     display: block;
     margin-bottom: 12px;
@@ -63,7 +65,7 @@ body.WinCE{
     color: $fontDarker;
   }
 
-  .listview{
+  .propertiesView{
     list-style: none;
 
     p{
@@ -153,14 +155,12 @@ body.WinCE{
   }
   h1{
     font-size:15px;
-    color:#fff;
     text-transform: uppercase;
     margin-bottom: 6px;
     font-weight: bold;
   }
   h2{
     font-size:45px;
-    color:#fff;
   }
 
   .compass{
@@ -179,10 +179,10 @@ body.WinCE{
   /* digit clock display */
   .digits{
     font-size: 20px;
-    background: $abBack;
+    background: $backLighter;
     border:0;
-    border-bottom: 1px solid $abBorder;
-    border-top: 1px solid $abBorder;
+    border-bottom: 1px solid $fontDarker;
+    border-top: 1px solid $fontDarker;
 
     & > *{
       text-align: center;
@@ -197,12 +197,12 @@ body.WinCE{
     z-index: 2;
     padding:6px 0;
     margin:0;
-    background: $abBack;
+    background: $backLighter;
 
     .items{
       text-align: center;
       list-style: none;
-      background: $abBack;
+      background: $backLighter;
 
       $liSize: 28px;
 
@@ -211,10 +211,10 @@ body.WinCE{
       }
 
       li{
-        border:2px solid $abFont;
+        border:2px solid $font;
         border-radius: 100%;
         display: inline-block;
-        color: $abFont;
+        color: $font;
         width:$liSize;
         height:$liSize;
         margin-right:26px;
@@ -230,7 +230,7 @@ body.WinCE{
 
         a{
           display: block;
-          color: $abFont;
+          color: $font;
           text-align: center;
         }
       }

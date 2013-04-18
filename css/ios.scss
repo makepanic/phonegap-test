@@ -33,10 +33,10 @@ body.iOS{
   $abButtonBoxShadow: #375075;
   $abButtonBoxShadowOut: #a0afc4;
 
-  $listviewBack: #f7f7f7;
-  $listviewBorder: #b7b9bd;
-  $listviewItemBorderBottom: #cacaca;
-  $listviewItemBorderTop: #fff;
+  $propertiesViewBack: #f7f7f7;
+  $propertiesViewBorder: #b7b9bd;
+  $propertiesViewItemBorderBottom: #cacaca;
+  $propertiesViewItemBorderTop: #fff;
 
 
   $normalButtonBorder:#777;
@@ -67,10 +67,10 @@ body.iOS{
     font-size: 20px;
   }
 
-  .listview{
-    background: $listviewBack;
+  .propertiesView{
+    background: $propertiesViewBack;
     color:$black;
-    border:1px solid $listviewBorder;
+    border:1px solid $propertiesViewBorder;
     box-shadow: inset 0 1px 1px #939393, 0 1px 2px #fff;
     list-style: none;
     border-radius: 15px;
@@ -80,8 +80,8 @@ body.iOS{
     margin-bottom: 15px;
 
     li{
-      border-bottom: 1px solid $listviewItemBorderBottom;
-      border-top: 1px solid $listviewItemBorderTop;
+      border-bottom: 1px solid $propertiesViewItemBorderBottom;
+      border-top: 1px solid $propertiesViewItemBorderTop;
       padding: 8px 10px;
       font-size: 20px;
 
