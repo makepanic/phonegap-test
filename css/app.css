@@ -4,3 +4,8 @@
 .view.home-view .home-view-content {
 	padding: 12px;
 }
+.view.home-view > .view-content,
+.view.test-view > .view-content {
+    -webkit-box-pack: center;
+    padding: 12px;
+}

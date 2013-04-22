@@ -24,7 +24,7 @@
 		<link href="images/apple-touch-startup-image-1496x2048.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 
 		<link rel="stylesheet" href="css/moobile.css" />
-		<link rel="stylesheet" href="css/moobile.android.css" />
+		<link rel="stylesheet" href="css/moobile.ios.css" />
 		<!--
 		<link rel="stylesheet" href="css/moobile.android.css" />
 		-->
@@ -45,14 +45,47 @@
 		<script type="text/javascript" src="js/app.js"></script>
 		<!--script type="text/javascript" src="js/app.min.js"></script -->
 
-	</head>
+        <script type="text/javascript" src="phonegap.js"></script>
+
+
+    </head>
 	<body>
 
 		<script type="text/javascript">
 
-			window.addEvent('ready', function() {
-				new Moobile.WindowController().setRootViewController(new ViewController.Home /* Put your root view controller here */);
-			});
+			window.addEvent('domready', function() {
+
+                console.log('window.ready');
+
+                var rootViewController = new Moobile.ViewControllerStack();
+                new Moobile.WindowController().setRootViewController(rootViewController);
+                rootViewController.pushViewController(new ViewController.Home);
+
+				//new Moobile.WindowController().setRootViewController(new ViewController.Home /* Put your root view controller here */);
+
+                // Handle the back button
+                document.addEventListener('deviceready', function(){
+                    console.log('deviceready');
+                    document.addEventListener("backbutton", function() {
+                        //Your backbutton code
+                        var childViews = rootViewController.getChildViewController();
+                        if(childViews.length <= 1){
+
+                        }else{
+                            console.log(childViews.length);
+                            rootViewController.popViewController();
+                            return false;
+                        }
+                    }, false);
+                }, false);
+                //document.addEventListener("deviceready", onDeviceReady, false);
+
+                // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+
+
+            });
+
+
 
 		</script>
 
